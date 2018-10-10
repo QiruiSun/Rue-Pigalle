@@ -1,0 +1,391 @@
+#book-an-appointment-container {
+  margin-top: -120px;
+  background-color: lightgrey;
+  background-image: url(//cdn.shopify.com/s/files/1/1230/7128/t/9/assets/bg-appointment.jpg?9175109226543651617);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "sofia-pro", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  width: 100%;
+  height: 100%;
+
+  #book-an-appointment * {
+    width: 100%;
+  }
+
+  #book-an-appointment {
+    padding-bottom: 10px;
+    margin-top: 0;
+    padding-top: 10px;
+
+    div.appointment {
+      padding: 10px;
+      border-radius: 0;
+      overflow: visible;
+      word-wrap: normal !important;
+      line-height: 1 !important;
+
+
+      div {
+        display: block;
+        white-space: normal !important;
+        color: white;
+        div {
+          white-space: normal !important;
+          text-align: left;
+        }
+      }
+      span.glyphicon-remove {
+        background: url("https://cdn.shopify.com/s/files/1/1230/7128/files/shopping.svg?8788044472216257773");
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: top;
+        text-align: right;
+        overflow: visible;
+        height: 24px;
+        top: -15px !important;
+        right: 35% !important;
+      }
+      span.glyphicon-remove::before {
+        display: none;
+      }
+    }
+
+    form {
+      div.baa-row {
+        padding: 0;
+        margin: 0;
+        div.col-xs-12:nth-child(2) {
+          padding: 0;
+          margin: 0;
+          div {
+            label.ng-binding {
+              display: none;
+            }
+
+            div.baa-row {
+              margin: 0;
+              div.col-xs-12 {
+                padding: 0;
+                a {
+                  min-width: 75px;
+                  width: 10%;
+                  border-radius: 0;
+                  border: 1.5px solid #F065A4;
+                  color: #F065A4;
+                  background-color: rgba(0,0,0,0);
+                  &:hover {
+                    background-color: rgba(0,0,0,0);
+                  }
+                }
+                a:nth-child(1), a:nth-child(2), a:nth-child(5) {
+                  display: none;
+                }
+                a:nth-child(4) {
+                  float: right;
+                }
+                a:nth-child(3) {
+                  float: left;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .div-template {
+    position: relative;
+    display: block;
+    max-width: 700px;
+    padding: 20px 80px;
+    margin: 150px 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    div.table-responsive {
+      padding-bottom: 0;
+    }
+
+    table {
+
+      thead {
+        font-size: 11px;
+        tr {
+          th:nth-child(1) {
+            width: 22% !important;
+          }
+          th:nth-child(2) {
+            display: none;
+          }
+          th:nth-child(3), th:nth-child(4), th:nth-child(5), th:nth-child(6), th:nth-child(7), th:nth-child(8) {
+            width: 13% !important;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td:nth-child(1) {
+            width: 10% !important;
+          }
+          td:nth-child(2) {
+            display: none;
+          }
+          td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7), td:nth-child(8) {
+            width: 13% !important;
+          }
+        }
+      }
+
+      th:first-child, tr:first-child {
+        width: 100px !important;
+      }
+    }
+
+    form {
+      padding: 10%;
+      padding-top: 0;
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+
+      div.bass-row {
+        div.col-xs-12 {
+          margin: 0;
+          padding: 0 !important;
+
+          div.baa-row {
+            &.ng-scope {
+              form {
+                div.baa-row {
+                  div.col-xs-12 {
+                    div.baa-row {
+                      margin-left: 0 !important;
+                      @media (min-width: 1200px) {
+                        .col-lg-offset-3 {
+                          margin-left: 0 !important;
+                        }
+                      }
+                      @media (min-width: 992px) {
+                        .col-lg-offset-3 {
+                          margin-left: 0 !important;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      
+
+      div {
+        &.col-lg-4 {
+          &.col-lg-offset-4 {
+            &.col-md-6 {
+              &.col-md-offset-3 {
+                &.col-xs-8 {
+                  &.col-xs-offset-2 {
+                    &.text-center {
+                      margin-left: 0;
+
+                      input[type=submit] {
+                        margin-left: auto !important;
+                        margin-right: auto !important;
+                        text-transform: uppercase;
+                        background-color: rgba(0,0,0,0);
+                        border: 1.5px solid #F065A4;
+                        padding: 4px;
+                        height: 40px;
+                        width: 70% !important;
+                        margin: 10px 10px;
+                        margin-top: 0;
+                        border-radius: 0px;
+                        font-size: 20px;
+                        color: #F065A4;
+                        content: "Book Now!";
+
+                        &::after {
+                          color: #F065A4;
+                          content: "Book Now!";
+                          text-transform: uppercase;
+                          font-size: 20px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      label {
+        padding: 5px 0;
+      }
+
+      label.ng-binding {
+        display: block;
+        margin: auto;
+        width: 70% !important;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 0;
+      }
+
+      input[type=text], #customerEmail {
+        display: block;
+        width: 70% !important;
+        margin: 8px auto;
+        margin-top: 0;
+        background-color: rgba(255, 255, 255, 0);
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        border-radius: 0;
+      }
+
+      div.checkbox {
+        display: block;
+        width: 70% !important;
+        margin: auto;
+
+        label {
+          width: 100%;
+          display: block;
+        }
+        #customFieldNothingtowear,
+        #customFieldIvegotmyeyesonsomething,
+        #customFieldIneedtheperfectoutfit
+         {
+          float: left;
+          padding-left: 50px;
+          margin-top: 4px;
+          width: 20px !important;
+          display: block;
+        }
+      }
+
+    }
+
+  }
+
+  & > div {
+    @extend .div-template;
+    border: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 30px;
+
+    & > div {
+      position: relative;
+      width: 100% !important;
+      margin: 0;
+    }
+
+
+    form {
+      padding: 0;
+      margin: 0;
+
+      label {
+        text-transform: uppercase;
+      }
+
+      .checkbox {
+        label {
+          text-transform: none;
+        }
+      }
+    }
+  }
+
+  .book-header {
+    @extend .div-template;
+    border-top: 3px solid #F065A4;
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    
+    h1 {
+      color: #f066a4;
+      font-size: 36px;
+      font-family: "sofia-pro","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+      padding-top: 15px;
+      padding-bottom: 10px;
+      text-align: center;
+      font-weight: 200 !important;
+    }
+
+    p {
+      font-size: 16px;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .no-time {
+    @extend .div-template;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    .pink {
+      color: #F065A4;
+    }
+  }
+
+  .foot {
+    @extend .div-template;
+    margin-top: 0;
+    padding-top: 5px;
+    margin-bottom: 150px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+  }
+
+
+}
+
+div.col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-xs-12 {
+  margin-left: 0 !important;
+}
+
+h1.pink {
+  margin-top: 40px;
+  color: #F065A4;
+}
+
+.blank-page {
+  margin-top: -120px;
+  background-image: url(//cdn.shopify.com/s/files/1/1230/7128/t/9/assets/bg-appointment.jpg?9175109226543651617);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "sofia-pro", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+
+  .white-modal {
+    margin-top: 200px;
+    padding: 40px;
+    padding-top: 0;
+    border-top: 3px solid #F065A4;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    a.wide-pink-link {
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+  }
+
+}
+
+div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3.col-xs-12 {
+  margin-left: 0 !important;
+}

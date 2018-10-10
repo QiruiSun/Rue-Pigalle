@@ -1,0 +1,126 @@
+<!-- /templates/collection.liquid -->
+{% comment %}
+
+  For more information on collection tags:
+    - http://docs.shopify.com/themes/liquid-variables/collection
+
+{% endcomment %}
+
+<div class="main-content">	
+
+	<div class="wrapper"> 	
+
+		{% paginate collection.products by 12 %}
+		
+		
+		<div class="grid">
+			
+			<div class="grid__item">
+		  			
+				{% comment %}
+					Different markup if a collection description exists ie: Designers pgs
+				{% endcomment %}
+				{% if collection.description != blank %}
+					<header class="section-header">
+						<h1 class="section-header__title">{{ collection.title }}</h1>
+						<div class="rte rte--header">
+							{{ collection.description }}
+						</div>
+					</header>
+			    	<hr>
+		  					  
+			    	<div class="section-header">
+		  				<h3 class="products-by">The {{ collection.title }} Collection</h3>
+		  				
+  		  				<div>
+  		  				  {% include 'collection-sidebar' %}
+  		  				</div>
+		  					
+						<div class="section-header__right">
+						  	{% include 'collection-sorting' %}
+						</div>
+			    	</div>
+          				
+			    {% else %}
+
+					<header class="section-header">
+					  <h1 class="section-header__title section-header__left">{{ collection.title }}</h1>
+
+					  <div class="section-header__right">
+	  				
+					    {% include 'collection-sorting' %}
+					  </div>
+					</header>
+					
+				{% endif %}
+			</div>
+		</div>
+
+		<div class="grid-uniform">
+			{% if collection.description == blank %}
+				<div class="grid__item large--one-fifth">
+					
+					<div class="subcats">
+				  		{% include 'collection-sidebar' %}
+					</div>
+				
+				</div>
+			{% endif %}
+			
+			<div class="grid__item large--four-fifths">
+				
+				{% if collection.handle == 'sales' %}
+				
+					<blockquote class="banner">{{settings.sales-text}}</blockquote>
+				
+				{% endif %}
+				
+				{% comment %}
+					Loop through our products in the current collection.
+					See the snippet 'product-grid-item' for the layout.
+				{% endcomment %}
+				
+				{% for product in collection.products %}
+					
+					{% include 'product-grid-item' %}
+					
+				{% else %}
+					
+					{% if collection.handle == 'all' and current_tags == '' %}
+						
+						{% comment %}
+							Add default products to help with onboarding for collections/all only
+						{% endcomment %}
+						{% unless emptyState %}
+							{{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
+							{% assign emptyState = true %}
+						{% endunless %}
+						{% include 'onboarding-empty-collection' %}
+						
+					{% else %}
+						
+						{% comment %}
+						  If collection exists but is empty, display message
+						{% endcomment %}
+						<div class="grid__item">
+							<p>{{ 'collections.general.no_matches' | t }}</p>
+						</div>
+						
+					{% endif %}
+						
+				{% endfor %}
+					
+			</div>
+				
+			{% if paginate.pages > 1 %}
+				<hr>
+				<div class="pagination">
+					{{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+				</div>
+			{% endif %}
+		</div>
+		{% endpaginate %}
+		
+	</div>
+</div>
+		

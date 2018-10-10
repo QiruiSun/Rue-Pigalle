@@ -1,0 +1,69 @@
+<!-- /templates/blog.liquid -->
+
+
+{% comment %}
+  This template is also used for listing out articles of a specific tag.
+  You can change layouts or styles by checking if current_tags is true.
+{% endcomment %}
+
+<div class="main-content">	
+
+	<div class="wrapper">
+		
+		<div class="grid">
+		
+			<div class="grid__item ">
+				<div class="section-header">
+		
+		    		{% if current_tags %}
+		    		  <h1>{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}</h1>
+		    		{% else %}
+		    		  <h1>{{ blog.title }}</h1>
+		    		{% endif %}
+					<p class="lead">Read what they say about us...</p>
+				</div>
+			</div>
+			<div class="grid__item ">
+				<br>
+			</div>
+			
+			<div class="grid__item">
+			
+				<div class="grid">
+					
+		    		
+					{% for article in blog.articles %}
+						<div class="grid__item medium--one-quarter large--one-quarter">
+							<div class="article">
+								<h5 class="text-center">{{ article.title }}</h5>
+								{% if article.image %}
+									<span class="article__featured-image">
+										{{ article | img_url: '1024x1024' | img_tag: article.title }}
+									</span>
+								{% endif %}
+		    		
+            		
+								<div class="rte page-post-editor">
+								
+									{% if article.excerpt.size > 0 %}
+										{{ article.excerpt }}
+									{% else %}
+										<p>{{ article.content }}</p>
+									{% endif %}
+								</div>
+
+							</div>
+						</div>
+		    		{% endfor %}
+				</div>
+				
+			</div>
+				
+		</div>	
+			
+	</div>
+	
+</div>		
+		
+
+		

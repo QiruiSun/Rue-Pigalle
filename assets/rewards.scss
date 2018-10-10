@@ -1,0 +1,122 @@
+.rewards-page {
+  margin-top: 120px;
+  min-height: 800px;
+	background-image: url(//cdn.shopify.com/s/files/1/1230/7128/t/9/assets/rewards-background.jpg?6785681623197767947);
+  background-position-x: center;
+  background-position-y: top;
+  background-size: cover;
+
+  .floating-square-wrapper {
+    min-height: 600px;
+    display: flex;
+    align-content: center;
+    background-color: rgba(255, 255, 255, 0.4);
+    font-size: 16px;
+
+    .floating-square {
+      padding: 50px;
+      margin: auto;
+      margin-top: 100px;
+      margin-bottom: 100px;
+      padding-bottom: 2rem;
+      padding-top: 0;
+      max-width: 600px;
+      @media (max-width: 600px) {
+        max-width: 100vw;
+      }
+      min-width: 0;
+      height: auto;
+      background: rgba(255, 255, 255, 0.9);
+      border-top: 3px #F065A4 solid;
+
+      h1 {
+        text-align: center;
+        margin-top: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-weight: 200;
+        font-size: 1.6rem;
+        margin-bottom: 1em;
+        color: #F065A4;
+        text-align: center;
+      }
+
+      .text-pink {
+        color: #F065A4;
+      }
+
+      .rewards-perk {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        white-space: nowrap;
+        overflow: visible;
+        img {
+          width: 6rem;
+          height: 6rem;
+          padding: 1rem;
+        }
+        .perk-title {
+          font-weight: bold;
+          margin-bottom: 0;
+          text-align: center;
+        }
+        .perk-subtitle {
+          font-size: 0.8rem;
+          text-align: center;
+        }
+      }
+
+      .hr-medium {
+        background-color: rgba(0, 0, 0, 0.03);
+        height: 2px;
+        width: 86%;
+        margin: 1rem 7%;
+      }
+      ul {
+        margin-top: 30px;
+        li {
+          color: #F065A4;
+          p {
+            margin-top: -25px;
+            color: black;
+            display: flex;
+            .points {
+              margin-left: 0.5rem;
+              width: 110px;
+            }
+            .reward {
+              flex: 1 0 0;
+            }
+            span {
+              flex-wrap: nowrap;
+            }
+          }
+        }
+      }
+
+      .rewards-link {
+        display: flex;
+        align-items: center;
+        align-self: center;
+        .floating-square-pink-button {
+          display: block;
+          margin: 1rem auto;
+          position: relative;
+          color: white;
+          font-size: 1.0em;
+          text-align: center;
+          padding: 0.5rem 2.5rem;
+          background-color: #F065A4;
+          text-transform: uppercase;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

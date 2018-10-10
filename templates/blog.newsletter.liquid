@@ -1,0 +1,35 @@
+<!-- /templates/blog.lookbook.liquid -->
+
+<div class="main-content">
+	<div class="wrapper">
+		<div class="lookbook-blog">
+			<h1>Newsletters</h1>
+			<p class="blog-header">
+				Put some sort of newsletters description here.
+			</p>
+			<div class="grid">
+				{% for article in blog.articles %}
+					{% if article.image %}
+					<div class="full-article grid__item large--one-third medium--one-half small--one-whole">
+						{% assign split_title = article.title | split: " - " %}
+						{% assign title = split_title | first %}
+						{% assign description = split_title | last %}
+						<h3 class="title"><a class="" href="{{ article.url }}">{{ title }}</a></h3>
+						<p class="description">{{ description }}</p>
+						<div class="article lookbook-article">
+							<a class="" href="{{ article.url }}">
+								<div class="article__featured-image">
+									{{ article | img_url: '707x707' | img_tag: article.title }}
+								</div>
+								<div class="click-to-view">
+									Click To View Newsletter
+								</div> 
+							</a>
+						</div>
+					</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>		

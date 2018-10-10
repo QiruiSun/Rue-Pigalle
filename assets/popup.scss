@@ -1,0 +1,26 @@
+.mylightbox-content {
+  
+  h2 {
+    text-transform: uppercase;
+    color: #F065A4;
+    font-size: 35px;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
+}
+
+.modifylightbox-popup.page_popup {
+  border: 4px solid #F065A4;
+}
+
+button.modlbx-mfp-close-btn-in.modlbx-mfp-close {
+  color: #F065A4 !important;
+}

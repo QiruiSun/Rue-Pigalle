@@ -1,0 +1,35 @@
+<!-- /templates/article.liquid -->
+
+
+          {% section 'lookbook' %}
+
+<div class="main-content">	
+
+	<div class="wrapper">
+		<div class="grid">
+		
+			<div class="grid__item ">
+				<div class="section-header">
+					<h1>Press</h1>
+					<p class="lead">Read what they say about us...</p>
+					
+					<article itemscope itemtype="http://schema.org/Article">
+		
+						<header class="section-header">
+		      		  
+							<h1>{{ article.title }}</h1>
+
+						</header>
+		
+						<div class="rte page-post-editor" itemprop="articleBody">
+							{{ article.content }}
+						</div>
+
+					</article>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+</div>

@@ -1,0 +1,78 @@
+.lookbook {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding-top: 50px;
+
+  .page {
+    position: relative;
+    background-color: lightgrey;
+    margin: 40px 0;
+    padding-bottom: 62.8%;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    a {
+      position: absolute;
+      display: block;
+      top: 0%;
+      left: 0%;
+      z-index: 2000;
+    }
+
+    .debug {
+      background-color: rgba(255, 0, 0, 0.5);
+    }
+
+    .blank-cross {
+      width: 2.0588235%;
+      height: 3.1818182%;
+    }
+
+    .pink-cross {
+      @extend .blank-cross;
+      background-image: url({{ 'shop-the-look-icon.png' | asset_url }});
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .text {
+      width: 4.0%;
+      height: 1.6%;
+    }
+
+  }
+
+  .page-type2 {
+    @extend .page;
+    margin: 0;
+    padding-bottom: 68.18%;
+    img {
+      height: auto;
+    }
+  }
+
+  .page-type3 {
+    @extend .page;
+    max-width: 1230px;
+    padding-bottom: 63.3%;
+  }
+
+  .page-type4 {
+    @extend .page;
+    max-width: 1230px;
+    padding-bottom: 73.25%;
+  }
+
+}
+
+canvas {
+  position: relative;
+}

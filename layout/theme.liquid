@@ -1,0 +1,688 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+	<!-- Web Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  {% if settings.favicon_enable %}
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+  {% endif %}
+
+  <!-- Title and description ================================================== -->
+  <title>
+  {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Helpers ================================================== -->
+  {% include 'social-meta-tags' %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+
+  <!-- CSS =================================================== -->
+  {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'rewards.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'timbercustom.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'lookbook.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'contact.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'banner.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'popup.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'blog.newsletter.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'blog.lookbook.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'login-signup.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'book.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'slick.css' | asset_url | stylesheet_tag }}
+  {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+  {{ 'tooltipster.bundle.min.css' | asset_url | stylesheet_tag }}
+  {{ 'tooltipster-sideTip-shadow.min.css' | asset_url | stylesheet_tag }}
+	{{ 'join-the-list.scss.css' | asset_url | stylesheet_tag }}
+
+
+  <!--- Google Search Console ================================================== -->
+  <meta name="google-site-verification" content="X6Dv5tZ1nkV39SlueQU31GP41c3Gz6fZK-3ujOBek40" />
+
+  <!-- Header hook for plugins ================================================== -->
+  {{ content_for_header }}
+  {% include 'oldIE-js' %}
+
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+
+  {% comment %}
+    If you store has customer accounts disabled, you can remove the following JS file
+  {% endcomment %}
+  {% if template contains 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {% endif %}
+
+
+  {{ 'magiczoom.css' | asset_url | stylesheet_tag }}
+  {{ 'magiczoom.js' | asset_url | script_tag }}
+
+  {{ 'tooltipster.bundle.min.js' | asset_url | script_tag }}
+  <script type='text/javascript' data-cfasync='false' src='//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js' data-shr-siteid='60ced4c09297ae5e867dc429d178dcf1' async='async'></script>
+
+  <script>
+          (function(d) {
+              loadFonts = 1;
+              if(window.sessionStorage){
+                  if(sessionStorage.getItem('useTypekit')==='false'){
+                      loadFonts = 0;
+                  }
+              }
+
+              if (loadFonts == 1) {
+                      var config = {
+                          kitId: 'ayc8jfr',
+                          scriptTimeout: 3000,
+                          async: true
+                      },
+                      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";if(window.sessionStorage){sessionStorage.setItem("useTypekit","false")}},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+="wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s);
+                  }
+              }
+
+          )(document);
+	</script>
+	<style>
+	        .wf-loading p, .wf-loading h1, .wf-loading h2, .wf-loading h3, .wf-loading h4 {
+	            visibility: hidden;
+	        }
+	        .wf-active  p, .wf-active h1, .wf-active h2, .wf-active h3, .wf-active h4 {
+	            visibility: visible;
+	        }
+	        .wf-inactive    p, .wf-inactive h1, .wf-inactive h2, .wf-inactive h3, .wf-inactive h4 {
+	            visibility: visible;
+				font-family: sans-serif;
+	        }
+	</style>
+
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+	n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+	document,'script','https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '209339909482745'); // Insert your pixel ID here.
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=209339909482745&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- DO NOT MODIFY -->
+	<!-- End Facebook Pixel Code -->
+
+	<title>{{ page_title }} | {{ shop.name }}  {% if template == '404' %}404 Error{% endif %}</title>
+
+</head>
+
+
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+
+
+<!-- Promo or HiBar -->
+	{% if pages.frontpage.metafields.promobar.onoff == 1 %}
+
+		<div class="hibar settings-on">
+			<div class="promo-copy" style="position:relative">
+				<div class="icon icon-x killer"></div>
+				<a href="{{ settings.pink-promo-banner-link }}" title="Rue Pigalle Offers">
+					{{ settings.pink-promo-banner-text }}
+				</a>
+			</div>
+		</div>
+
+	{% endif %}
+
+<!-- Top Bar or Header-->
+<div class="top_bar">
+	<div class="grid">
+		<!-- Logo -->
+		<div id="logo" class="grid__item large--one-third medium--one-whole small--one-whole">
+			<h1 class="site-header__logo large--center" itemscope itemtype="http://schema.org/Organization">
+			<a href="/" itemprop="url">
+				<img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+			</a>
+		</div>
+
+		<!-- User Panel -->
+		<div id="user-panel" class="grid__item large--two-thirds medium--hide small--hide">
+			<ul class="inline-list text-right cart-sticky-nav">
+
+				<!-- Search -->
+				<li>
+					<form id="circle-search-icon" action="/search" method="get" role="search">
+						{% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
+						<input class="search-bar" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
+					</form>
+				</li>
+
+				<!-- Wishlist -->
+				<li>
+					{% if customer %} <!-- Logged In -->
+						<a href="/apps/mywishlist">Wishlist</a>
+					{% else %}
+						<a href="/pages/wishlist-login">Wishlist</a>
+					{% endif %}
+				</li>
+
+				<!-- Account Name -->
+				{% if customer %} <!-- Logged In -->
+				<li>
+						<a href="/account">Account</a>
+				</li>
+
+				{% else %}
+
+				{% endif %}
+
+				<!-- Login or Logout -->
+				<li>
+						{% if customer %} <!-- Logged In -->
+							{{ 'layout.customer.log_out' | t | customer_logout_link }}
+						{% else %}  <!-- NOT Logged In -->
+							{{ 'layout.customer.log_in' | t | customer_login_link }}
+						{% endif %}
+				</li>
+
+				<!-- Bag -->
+				<li>
+					<a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+						{{ 'layout.cart.title' | t }}
+						(<span id="CartCount">{{ cart.item_count }}</span>)
+					</a>
+				</li>
+			</ul>
+
+		</div>
+
+	</div>
+
+</div>
+
+<!-- Nav Bar -->
+<header class="site-header" role="banner">
+	<div class="grid">
+		<div class="grid__item">
+
+			<nav class="nav-bar" role="navigation">
+
+				<div class="medium-down--hide">
+
+					<!-- begin site-nav -->
+					<ul class="site-nav" id="AccessibleNav">
+
+
+						{% for link in linklists.main-menu.links %}
+
+							{% assign child_list_handle = link.title | handleize %}
+							{% if linklists[child_list_handle].links != blank %}
+								<li class="site-nav--has-dropdown{% if link.active %} site-nav--active{% endif %}" aria-haspopup="true">
+									<a href="{{ link.url }}" class="site-nav__link">
+									  {{ link.title }}
+									  <span class="icon icon-arrow-down" aria-hidden="true"></span>
+									</a>
+									<ul class="site-nav__dropdown">
+										{% for childlink in linklists[child_list_handle].links %}
+											<li{% if childlink.active %} class="site-nav--active"{% endif %}>
+												<a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+											</li>
+										{% endfor %}
+									</ul>
+								</li>
+							{% else %}
+								<li {% if link.active %}class="site-nav--active"{% endif %}>
+								  <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+					<!-- //site-nav -->
+
+				</div>
+
+				<!-- begin hamburger -->
+				<div class="large--hide medium-down--show">
+
+					<div class="grid">
+
+						<div class="grid__item one-half">
+							<div class="site-nav--mobile">
+								<button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left" aria-controls="NavDrawer" aria-expanded="false">
+									<span class="icon icon-hamburger" aria-hidden="true"></span>
+									<span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
+								</button>
+							</div>
+						</div>
+						<div class="grid__item one-half text-right">
+							<div id="hamburger-bag" class="site-nav--mobile">
+								<a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+									{{ 'layout.cart.title' | t }}
+									(<span id="CartCount">{{ cart.item_count }}</span>)
+								</a>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			  	<!-- //hamburger -->
+
+			</nav>
+
+		</div>
+	</div>
+</header>
+
+
+
+<div id="NavDrawer" class="drawer drawer--left">
+	<div class="drawer__header">
+		<div class="drawer__title h3">{{ 'layout.drawers.browse' | t }}</div>
+		<div class="drawer__close js-drawer-close">
+			<button type="button" class="icon-fallback-text">
+				<span class="icon icon-x" aria-hidden="true"> </span>
+				<span class="fallback-text">{{ 'layout.drawers.close_menu' | t }}</span>
+			</button>
+		</div>
+	</div>
+
+	<!-- begin mobile-nav -->
+
+	<ul class="mobile-nav">
+		<li class="mobile-nav__item mobile-nav__search">
+		  {% include 'search-bar' %}
+		</li>
+		{% for link in linklists.main-menu.links %}
+
+			{% assign child_list_handle = link.title | handleize %}
+			{% if linklists[child_list_handle].links != blank %}
+				<li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}" aria-haspopup="true">
+					<div class="mobile-nav__has-sublist">
+						<a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+						<div class="mobile-nav__toggle">
+							<button type="button" class="icon-fallback-text mobile-nav__toggle-open">
+								<span class="icon icon-plus" aria-hidden="true"> </span>
+								<span class="fallback-text">See More</span>
+							</button>
+							<button type="button" class="icon-fallback-text mobile-nav__toggle-close">
+								<span class="icon icon-minus" aria-hidden="true"> </span>
+								<span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
+							</button>
+						</div>
+					</div>
+					<ul class="mobile-nav__sublist">
+						{% for childlink in linklists[child_list_handle].links %}
+							<li class="mobile-nav__item {% if childlink.active %} mobile-nav__item--active{% endif %}">
+								<a href="{{ childlink.url }}" class="mobile-nav__link">{{ childlink.title | escape }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</li>
+			{% else %}
+				<li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}">
+					<a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+
+		{% if shop.customer_accounts_enabled %}
+			{% if customer %}
+				<li class="mobile-nav__item">
+					{{ 'layout.customer.log_out' | t | customer_logout_link }}
+				</li>
+				<li class="mobile-nav__item">
+					{% if customer.first_name != blank %}
+						{% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+						{{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+					{% else %}
+						<a href="/account">{{ 'layout.customer.account' | t }}</a>
+					{% endif %}
+				</li>
+
+				<li class="mobile-nav__item">
+					{% if customer %} <!-- Logged In -->
+						<a href="/apps/mywishlist">Wishlist</a>
+					{% else %}
+						<a href="/pages/wishlist-login">Wishlist</a>
+					{% endif %}
+				</li>
+			{% else %}
+				<li class="mobile-nav__item">
+					{{ 'layout.customer.log_in' | t | customer_login_link }}
+				</li>
+
+				<li class="mobile-nav__item">
+					{% if customer %} <!-- Logged In -->
+						<a href="/apps/mywishlist">Wishlist</a>
+					{% else %}
+						<a href="/pages/wishlist-login">Wishlist</a>
+					{% endif %}
+				</li>
+			{% endif %}
+		{% endif %}
+	</ul>
+	<!-- //mobile-nav -->
+
+</div><!-- //#NavDrawer -->
+
+{% if settings.ajax_cart_method == "drawer" %}
+	<div id="CartDrawer" class="drawer drawer--right">
+		<div class="drawer__header">
+			<div class="drawer__title h3">{{ 'cart.general.title' | t }}</div>
+			<div class="drawer__close js-drawer-close">
+				<button type="button" class="icon-fallback-text">
+					<span class="icon icon-x" aria-hidden="true"> </span>
+					<span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
+				</button>
+			</div>
+		</div>
+		<div id="CartContainer"></div>
+	</div>
+{% endif %}
+
+
+<div id="PageContainer" class="is-moved-by-drawer">
+
+	{% if template == "index" %}
+	{% include 'banner' %}
+	{% elsif template == "page.join-the-list" %}
+		<div style="margin-top:60px;"></div>
+	{% else %}
+		<div style="margin-top:120px;"></div>
+	{% endif %}
+
+    {{ content_for_layout }}
+
+	{% if template == "index" or page.handle contains "rewards" or page.handle contains "join-our-list" or page.handle contains "about-us" or page.handle contains "contact-us" or page.handle contains "rewards-club" or page.handle contains "press" or page.handle contains "get-styled"  %}
+		<div></div>
+
+	{% else %}
+		<div class="main-content">
+			<div class="wrapper">
+				<div class="grid">
+					<div class="grid__item">
+
+						<div id="awarp-recently-viewed-products" data-cart-products="{% for line in cart.items %}{{ line.product_id }},{% endfor %}"></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+	<!-- begin site-footer -->
+
+	<footer class="site-footer small--text-center" role="contentinfo">
+		<div class="wrapper">
+		  <div class="grid">
+
+			<div class="grid__item">
+
+				<div class="grid">
+					<div class="grid__item large--one-twelfth">
+					</div>
+					<div class="grid__item">
+						<div class="grid">
+
+									{% if settings.footer_social_enable %}
+										<div class="grid__item large--one-quarter medium--one-half text-center">
+										  <h4 class="text-center">Contact Us</h4>
+											 <ul class="no-bullets footer-list-typo need-to-know">
+										    <li><a href="/apps/book-an-appointment/appointments/new" class="btn telno">Book An Appointment</a></li>
+											   <li><a href="tel:647-242-8114">647-242-8114</a></li>
+											   <li><a href="mailto:boutique@ruepigalle.ca">Email Us</a></li>
+											  </ul>
+										</div>
+									{% endif %}
+
+									<div class="grid__item large--one-quarter medium--one-half text-center">
+										<h4 class="text-center">Connect</h4>
+									   <ul class="inline-list social-icons">
+									       <li>
+									         <a target="_blank" class="icon-fallback-text" href="{{ settings.social_pinterest_link }}" title="{{ shop.name }} on Pinterest">
+									           <span class="icon icon-pinterest" aria-hidden="true"></span>
+									           <span class="fallback-text">Pinterest</span>
+									         </a>
+									       </li>
+
+									     {% if settings.social_facebook_link != blank %}
+									       <li>
+									         <a target="_blank" class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook">
+									           <span class="icon icon-facebook" aria-hidden="true"></span>
+									           <span class="fallback-text">Facebook</span>
+									         </a>
+									       </li>
+									     {% endif %}
+									       <li>
+									         <a target="_blank" class="icon-fallback-text" href="{{ settings.social_instagram_link }}" title="{{ shop.name }} on Instagram">
+									           <span class="icon icon-instagram" aria-hidden="true"></span>
+									           <span class="fallback-text">Instagram</span>
+									         </a>
+									       </li>
+									     {% if settings.social_twitter_link != blank %}
+									       <li>
+									         <a target="_blank" class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
+									           <span class="icon icon-twitter" aria-hidden="true"></span>
+									           <span class="fallback-text">Twitter</span>
+									         </a>
+									       </li>
+									     {% endif %}
+									   </ul>
+									</div>
+
+									<div class="grid__item large--one-quarter medium--one-half text-center">
+										<h4 class="text-center">Need to Know?</h4>
+										<ul class="no-bullets footer-list-typo need-to-know">
+
+											<li>{{ 'Return Policy' | link_to: pages['return-policy'].url }}</li>
+											<li>{{ 'Privacy Policy' | link_to: pages['privacy-policy'].url }}</li>
+											<li>{{ 'Terms of Service' | link_to: pages['terms-of-service'].url }}</li>
+											<li>{{ 'Styling FAQ' | link_to: pages['get-styled'].url }}</li>
+
+										</ul>
+									</div>
+
+									<div class="grid__item large--one-quarter medium--one-half text-center">
+
+									  {% comment %}
+									    Loop through available payment methods and show their icons.
+									  {% endcomment %}
+									  {% unless shop.enabled_payment_types == empty %}
+									    <h4 class="text-center">{{ 'layout.footer.accepted_payments' | t }}</h4>
+									    <ul class="inline-list payment-icons">
+									      {% for type in shop.enabled_payment_types %}
+									        <li>
+									          <span class="icon-fallback-text">
+									            <span class="icon icon-{{type}}" aria-hidden="true"></span>
+									            <span class="fallback-text">{{ type | replace: '_',' '}}</span>
+									          </span>
+									        </li>
+									      {% endfor %}
+									    </ul>
+									  {% endunless %}
+
+									</div>
+
+						</div>
+
+					</div>
+
+					<div class="grid__item large--one-twelfth">
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</footer>
+
+	<div class="hp-grey-section postscript">
+		<div class="hp-main-section-line"></div>
+		<blockquote class="text-center">Wear your unique story</blockquote>
+
+		<small class="text-center">&copy; 2017 Rue Pigalle &nbsp;</small>
+	</div>
+    <!-- //site-footer -->
+
+</div>
+
+{{ 'slick.min.js' | asset_url | script_tag }}
+{{ 'timber.js' | asset_url | script_tag }}
+
+<script>
+  {% if resetPassword %}
+    $(function() {
+      timber.resetPasswordSuccess();
+    });
+  {% endif %}
+</script>
+
+{% comment %}
+  Ajaxify your cart with this plugin.
+  Documentation:
+    - http://shopify.com/timber#ajax-cart
+{% endcomment %}
+{% if settings.ajax_cart_method == "drawer" %}
+  {{ 'handlebars.min.js' | asset_url | script_tag }}
+  {% include 'ajax-cart-template' %}
+  {{ 'ajax-cart.js' | asset_url | script_tag }}
+<script>
+	jQuery(function($) {
+	  ajaxCart.init({
+	    formSelector: '#AddToCartForm',
+	    cartContainer: '#CartContainer',
+	    addToCartSelector: '#AddToCart',
+	    cartCountSelector: '#CartCount',
+	    cartCostSelector: '#CartCost',
+	    moneyFormat: {{ shop.money_format | json }}
+	  });
+	});
+
+
+
+
+	jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
+	  // Bind to 'ajaxCart.afterCartLoad' to run any javascript after the cart has loaded in the DOM
+	  timber.RightDrawer.open();
+	});
+
+{% endif %}
+
+jQuery(document).on('ready', function() {
+
+	$(".hero").slick({
+		infinite: true,
+		slidesToShow: 1,
+			arrows: true,
+			autoplay: true,
+			autoplaySpeed: 2000,
+	});
+
+	$('.that-tooltip').tooltipster({
+		theme: 'tooltipster-shadow',
+		delay: 100,
+		maxWidth: 500,
+		speed: 300,
+		interactive: true,
+
+		animation: 'grow',
+		trigger: 'click'
+	});
+
+	$(".killer").on('touchstart click', function() {
+		$(".hibar").addClass('bargone');
+		$(".promo-copy").addClass('bargone');
+		$(".top_bar").addClass('bargone');
+		$(".site-header").addClass('bargone');
+		$(".drawer__header").addClass('bargone');
+
+	});
+
+	if ( $(".settings-off").length ) {
+		$(".hibar").addClass('bargone-fast');
+		$(".promo-copy").addClass('bargone-fast');
+		$(".top_bar").addClass('bargone-fast');
+		$(".site-header").addClass('bargone-fast');
+		$(".drawer__header").addClass('bargone-fast');
+
+	}
+
+});
+</script>
+
+{% include 'iwish_v2' with 'iwishfooter' %}
+{% include 'size-chart' %}
+
+
+
+
+
+  {% include 'modify_lightbox_snippet' %}
+
+	<script>
+		// Opacity change on scroll for header
+
+		/** [PURE]
+		 * Return the number if it falls within the current range.
+		 * @param {Number} value The candidate value to be evaluated against.
+		 * @param {Number} min Minimum allowed value.
+		 * @param {Number} max Maximum allowed value.
+		 */
+		function clamp(value, min, max) {
+			var range = [value, min, max]
+			var sortedRange = range.sort(function(a, b) {
+				return a - b
+			})
+			var clampedValue = sortedRange[1]
+			return clampedValue
+		}
+
+		// Constants
+		var topBar = $('.top_bar')
+		var navBar = $('.nav-bar')
+		var fadeLength = 150 // px
+		var startOpacity = 0.65 // %
+		var endOpacity = 1.00 // %
+		var opacityRange = endOpacity - startOpacity
+
+		// jQuery Event Listener, listens for scrolling.
+		$(window).on('scroll', function () {
+
+			var distanceFromTop = $(this).scrollTop()
+			var distanceToFull = fadeLength - distanceFromTop
+			var percentageScrolled = 1 - (distanceToFull / distanceFromTop)
+			var addedOpacity = percentageScrolled * opacityRange
+			var candidateOpacity = startOpacity + addedOpacity
+			var opacity = clamp(candidateOpacity, startOpacity, endOpacity)
+
+			// Set styles once calculated
+			var stringOpacity = opacity.toString()
+			var backgroundColor = 'rgba(255, 255, 255,' + stringOpacity + ')'
+			var style = {
+				'background-color': backgroundColor
+			}
+			topBar.css(style)
+			navBar.css(style)
+		})
+	</script>
+
+{% include 'swymSnippet' %}
+
+  {% include 'sweettooth-initializer' %}
+
+  {% include 'sweettooth-tab-widget' %}
+
+</body>
+</html>

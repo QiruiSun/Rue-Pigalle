@@ -1,0 +1,225 @@
+<!-- /templates/index.liquid -->
+{% assign page = pages.frontpage %}
+
+
+{% comment %}
+	WE MOVED THIS MAIN-CONTENT TAG HERE FROM theme.liquid FOR THE 100% WIDE Areas wrapping the WRAPPER CLASS FOR GREY BGS AND WHATNOT... so that oughta follow through in the other template files: 
+	
+	<div (or main) class="main-content" role="main"> //this is full-width
+		<div class="wrapper">....</div> //this has the padding on the sides
+	</div (or main)>
+	
+{% endcomment %}
+<div class="main-content small--show large--hide medium--hide">
+	<div class="wrapper"> 
+		<div class="grid">
+			<div class="grid__item">
+				<a class="btn--secondary" href="/collections/new-arrivals">New Arrivals</a>
+			</div>
+			<div class="grid__item">
+				<a class="btn--secondary" href="/collections/jewelery">Jewelery</a>
+			</div>
+			<div class="grid__item">
+				<a class="btn--secondary" href="/collections/accessories">Accessories</a>
+			</div>
+			<div class="grid__item">
+				<a class="btn--secondary" href="/collections/clothing">Clothing</a>
+			</div>
+			<div class="grid__item">
+				<a class="btn--secondary" href="/collections/sales">Sales</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+<div class="main-content" role="main">
+		{% if settings.centerShopTheLook == true %}
+			<div class="wrapper">
+		{% endif %}
+		<div class="stl-content">	
+				<div class="grid">
+
+
+				{% assign product1Handle = settings.shop-the-look-product1 %}
+				{% assign product2Handle = settings.shop-the-look-product2 %}
+				{% assign product3Handle = settings.shop-the-look-product3 %}
+
+				{% assign product1 = all_products[product1Handle] %}
+				{% assign product2 = all_products[product2Handle] %}
+				{% assign product3 = all_products[product3Handle] %}
+
+					
+				<div class="grid__item large--one-half">
+					{{ 'shop-the-look.jpg' | asset_url | img_tag: 'Shop the Look Placeholder', 'stl-img-lrg' }}
+					<div class="stl-overlay-holder">
+						<div class="relative-wrap">
+
+							{% if product1Handle != "" %}
+							<div class="overlay-1 that-tooltip" data-tooltip-content="#tooltip-content-one"></div>
+
+							{% endif %}
+
+							{% if product2Handle != "" %}
+							<div class="overlay-2 that-tooltip" data-tooltip-content="#tooltip-content-two"></div>
+								{% endif %}
+ 
+							{% if product3Handle != "" %}
+							<div class="overlay-3 that-tooltip" data-tooltip-content="#tooltip-content-three"></div>
+								{% endif %}
+						</div> 
+						<div class="tooltip-templates">
+							{% if product1Handle != "" %}
+								<span id="tooltip-content-one">
+									<strong class="upper">{{ product1.vendor }}</strong>
+									{{product1.title}}<br>
+									<a href="/products/{{ product1Handle }}" class="btn btn--small">View item</a>
+								</span>
+								{% endif %}
+
+
+							{% if product2Handle != "" %}
+								<span id="tooltip-content-two">
+									<strong class="upper">{{ product2.vendor }}</strong>
+									{{product2.title}}<br>
+									<a href="/products/{{ product2Handle }}" class="btn btn--small">View item</a>
+								</span>
+								{% endif %}
+
+
+							{% if product3Handle != "" %}
+								<span id="tooltip-content-three">
+									<strong class="upper">{{ product3.vendor }}</strong>
+									{{product3.title}}<br>
+									<a href="/products/{{ product3Handle }}" class="btn btn--small">View item</a>
+								</span>
+								{% endif %}
+						</div>
+						
+					</div>
+					
+				</div>
+				
+				<div class="grid__item large--one-half">			  
+					<div class="stl-text-box">
+						<h3 class="deco-headline">{{ settings.shop-the-look-title }}</h3>
+						
+						<h5 class="stl-subs">{{ settings.shop-the-look-header1 }}</h5>
+						<div class="stl-box-line"></div>
+						<p>{{ settings.shop-the-look-designer }}</p>
+						
+						<h5 class="stl-subs">{{ settings.shop-the-look-header2 }}</h5>
+						<div class="stl-box-line"></div>
+						<p>{{ settings.shop-the-look-about }}</p>
+						
+					</div>				
+				</div>
+			</div>
+		</div>	
+		{% if settings.centerShopTheLook == true %}
+			</div>
+		{% endif %}
+</div>
+
+<!--<div class="main-content hp-usp-section">	
+
+	<div class="wrapper"> 
+	
+		<h2 style="margin-top:12px" class="hp-main-section">Why Shop <span>Rue Pigalle?</span></h2>
+		
+		<div class="hp-main-section-line"></div>
+				
+		<div class="grid usp-zone">
+		
+			<div class="grid__item large--one-half large--one-quarter">
+				<div class="fancy-box">
+					<h3 class="fancy-box-orn-one">Exceptional Designers</h3>
+					<h4>Trained in haute couture</h4>
+					<p>Exclusively carried by us in Canada.</p>
+				</div>
+			</div>
+		
+			<div class="grid__item large--one-half large--one-quarter">
+				<div class="fancy-box hori-seperator">
+					<h3 class="no-orn">Unique Collections</h3>
+					<h4>Be an original</h4>
+					<div class="fancy-box-line"></div>
+					<p>There is only one of THAT necklace.</p>
+				</div>
+			</div>
+		
+			<div class="grid__item large--one-half large--one-quarter">
+				<div class="fancy-box hori-seperator">
+					<h3 class="fancy-box-orn-two">An Intimate<br>Space</h3>
+					<h4>Among objets d'art</h4>
+					<p>The ultimate private boutique experience.</p>
+				</div>
+			</div>
+		
+			<div class="grid__item large--one-half large--one-quarter">
+				<div class="fancy-box hori-seperator">
+					<h3 class="no-orn">Elevated Personal Shopping</h3>
+					<h4>One on One</h4>
+					<div class="fancy-box-line"></div>
+					<p>However you please, online or in person.</p>
+				</div>
+			</div>
+		
+		</div>		
+	</div>
+
+</div>-->
+
+<div class="main-content hp-vid-section">	
+	
+	<div class="wrapper">
+		<div class="grid-uniform text-center">
+			  
+			<div class="grid__item large--two-thirds">
+
+				{% assign src = settings.video-code | split: 'src="' %}
+				{% assign src = src[1] | split: '"' | first %}
+				
+				<iframe width="740" height="417" src="{{ src }}" frameborder="0" allowfullscreen>
+				</iframe>
+				
+			</div>
+			
+			<div class="grid__item large--one-third">
+			
+				<div class="right-coaster-box">
+				
+					<h3>{{ settings.video-title }}</h3>
+					<p>{{ settings.video-description }}</p>
+					<a href="{{ settings.video-button-link }}" class="btn--secondary blk" target="_blank">{{ settings.video-button-text }}</a>
+					
+				</div>
+			</div>
+
+		</div>
+		<br>
+	</div>	
+	
+</div>
+
+<div class="main-content hp-grey-section">
+		
+	<div class="wrapper">		
+		
+		<h2 class="hp-main-section-alt"><small>Follow us on</small>Instagram</h2>
+		<div class="orn-rule-disc"></div>
+		
+		<div class="grid">
+			<div class="grid__item">
+				<div data-is data-is-source="@ruepigalletoronto" data-is-columns="5" data-is-rows="1" data-is-gutter="25" data-is-responsive="%7B%22480%22%3A%7B%22columns%22%3A%221%22%2C%22rows%22%3A%225%22%2C%22gutter%22%3A%2215%22%7D%2C%22768%22%3A%7B%22columns%22%3A%223%22%2C%22rows%22%3A%221%22%2C%22gutter%22%3A%2215%22%7D%7D" data-is-color-gallery-overlay="rgba(240, 101, 164, 0.9)" data-is-color-gallery-arrows="rgb(0, 0, 0)" data-is-color-gallery-arrows-hover="rgb(241, 87, 42)" data-is-color-gallery-scrollbar-slider="rgba(68, 68, 68, 0)" data-is-mode="instagram" data-is-drag-control="false">
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>	
+	 
+</div>
+
+
+{% include 'join-the-list' %}

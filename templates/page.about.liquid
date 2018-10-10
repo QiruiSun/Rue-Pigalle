@@ -1,0 +1,15 @@
+<!-- /templates/page.about.liquid -->
+
+<main class="about">
+  <div class="grid">
+    <!-- Text Content, Title, Paragraphs, Signature. -->
+    <section class="grid__item large--one-half medium--one-whole">
+      {{ page.content }}
+    </section>
+
+    <!-- Image of Isabelle -->
+    <aside class="grid__item large--one-half medium--one-whole">
+      <img src="{{ 'about-background' | asset_url }}" alt="Isabelle Fish">
+    </aside>
+  </div>
+</main> 

@@ -1,0 +1,37 @@
+<!-- /templates/collection.new.liquid -->
+<div class="main-content collection-template-new">
+	
+	<header style="background-image:url({{ collection.handle | append: '.jpg' | file_url }})">
+		<div class="tint">
+			<div class="wrapper">
+				<h1 class="collection-title large--two-thirds black-header">
+					Introducing {{ collection.title }}
+				</h1>
+			</div>
+		</div>
+	</header>
+
+	<main class="wrapper">
+
+		<div class="collection-designer right small--hide medium--hide"
+			style="background-image:url({{ collection.image | img_url: 'original' }})">
+		</div>
+
+		<div class="collection-description"> 
+			{{ collection.description }}
+		</div>
+
+		<h2 class="collection-by">
+			The {{ collection.title }} Collection
+		</h2>
+
+		<div class="collection-selector">
+			{% include 'collection-selector' %}
+		</div>
+		
+		{% for product in collection.products %}
+			{% include 'product-grid-item' %}
+		{% endfor %}
+
+	</main>
+</div>

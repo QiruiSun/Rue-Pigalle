@@ -1,0 +1,71 @@
+.contact {
+  
+  background-image: url(//cdn.shopify.com/s/files/1/1230/7128/t/9/assets/contact-background.jpg?12832997060797269846);
+  background-position-x: right;
+  background-position-y: bottom;
+  background-size: cover;
+
+  .floating-square-wrapper {
+    display: flex;
+    align-content: center;
+    background-color: rgba(255, 255, 255, 0.4);
+
+    .floating-square {
+
+      h1 {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+      }
+
+      h3 {
+        font-weight: 300;
+      }
+      
+      .social {
+        border-top: 2px solid rgba(0, 0, 0, 0.1);
+        width: 80%;
+        margin: auto;
+        padding-top: 20px;
+        h4 {
+          color: #F065A4;
+          font-weight: 200;
+          text-align: center;
+          width: 100%;
+          text-transform: uppercase;
+        }
+        ul {
+          display: flex;
+          margin: auto;
+          justify-content: center;
+        }
+
+        .icon {
+          color: black;
+        }
+      }
+
+      .form-vertical {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 40px;
+        input.button {
+          width: 100%;
+          color: white;
+          background-color: #F065A4; 
+        }
+      }
+
+      padding: 50px;
+      margin: auto;
+      margin-top: 50px;
+      padding-bottom: 0;
+      padding-top: 0;
+      max-width: 600px;
+      min-width: 0;
+      margin-bottom: 80px;
+      background: white;
+      border-top: 3px #F065A4 solid;
+    }
+  }
+}

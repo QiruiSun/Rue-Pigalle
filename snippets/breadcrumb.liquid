@@ -1,0 +1,69 @@
+<!-- /snippets/breadcrumb.liquid -->
+{% comment %}
+  Documentation - http://docs.shopify.com/support/your-website/navigation/creating-a-breadcrumb-navigation
+{% endcomment %}
+{% unless template == 'index' or template == 'cart' %}
+<nav class="breadcrumbs">
+	<a href="/" class="homepage-link" title="Back to the frontpage">Home </a>
+	
+	{% if template contains "product" %}
+		{% if collection %}
+		
+			{% if collection.handle %}
+				
+				{% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+				<span aria-hidden="true">&rsaquo;</span>
+				{{ collection.title | link_to: url }}
+				
+			        {% for tag in collection.tags %}
+			        	{% if product.tags contains tag %}
+			        		<span aria-hidden="true">&rsaquo;</span>
+							
+							{% comment %}
+							  Had to Hardcode tag because it was adding a ?constrain variable to the link url
+							{% endcomment %}
+							<a title="Remove tag {{ tag }}" href="{{ url }}/{{ tag | downcase}}">{{ tag }}</a>
+							           
+			        	{% endif %}
+			        {% endfor %}
+				
+				
+			{% endif %}
+			
+			{% else %} 
+				{% if collection.handle %}
+					{% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+				
+					<span aria-hidden="true">&rsaquo;</span>
+					{{ collection.title | link_to: url }}
+					
+		        	{% for tag in collection.tags %}
+		        		{% if product.tags contains tag %}
+		        			<span aria-hidden="true">&rsaquo;</span>
+							
+							{% comment %}
+							  Had to Hardcode tag because it was adding a ?constrain variable to the link url
+							{% endcomment %}
+							<a title="Remove tag {{ tag }}" href="{{ url }}/{{ tag | downcase}}">{{ tag }}</a>
+							           
+		        		{% endif %}
+		        	{% endfor %}
+					
+				{% endif %}
+				
+				
+		{% endif %}
+		
+	{% elsif template == "article" %}
+		<span aria-hidden="true">&rsaquo;</span>
+		{{ blog.title | link_to: blog.url }}
+	{% endif %}	
+
+	<span aria-hidden="true">&rsaquo;</span>
+	{{ page_title }}
+			       
+</nav>	
+{% endunless %}
+
+
+

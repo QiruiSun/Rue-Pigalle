@@ -1,0 +1,75 @@
+<!-- /templates/page.book.liquid -->
+<div class="main-content">
+	<div class="book">
+		<div class="grid">
+			
+			<div class="grid__item large--one-sixth medium--one-sixth"></div>
+
+			<div class="modal grid__item large--two-half medium--one-whole">
+
+				<div class="section-header">
+					<h1>{{ page.title }}</h1>
+				</div>
+
+				<div class="rte page-post-editor">
+					{{ page.content }}
+				</div>
+
+				<form>
+					<input type="text" placeholder="NAME*">
+					<input type="text" placeholder="TELEPHONE*">
+					<input type="date" placeholder="APPOINTMENT  DATE**">
+					<div class="time">
+						<label for="morning">Morning
+							<input id="morning" type="radio" name="time" value="morning">
+						</label>
+						<label for="afternoon">Afternoon
+							<input id="afternoon" type="radio" name="time" value="afternoon">
+						</label>
+						<label for="evening">Evening
+							<input id="evening" type="radio" name="time" value="evening">
+						</label>
+					</div>
+					<input type="text" placeholder="EMAIL ADDRESS**">
+
+					<div class="reason">
+						<p class="let-us-know">Please let us know what your are looking for</p>
+						<p class="click-what-apply">(Click What Apply)</p>
+						<label for="nothing">
+							<input id="nothing" type="checkbox" name="reason" value="Nothing to wear">
+							Nothing to wear
+						</label>
+						<label for="eyes">
+							<input id="eyes" type="checkbox" name="reason" value="I've got my eyes on something">
+							I've got my eyes on something
+						</label>
+						<label for="perfect">
+							<input id="perfect" type="checkbox" name="reason" value="I need the perfect outfit!">
+							I need the perfect outfit!
+						</label>
+						<label for="other">
+							<input id="other" type="checkbox" name="reason" value="Other">
+							Other
+						</label>
+					</div>
+
+					<input class="pink-button" type="submit" value="Book Now!">
+				</form>
+
+				<div class="no-time">
+					<p>
+						<a href="mailto:info@ruepigalle.ca" class="pink">No time to drop by?</a> Pas de probleme. Just send me an email
+						with your list of wants and I will either deliver it to your door for a home-try-on
+						(Toronto Area only) or compile a personal look book for you to choose from.
+					</p>
+				</div>
+
+				<div class="foot">
+					<p>Shopping done - Wardrobe refreshed - Partner none-the-wiser!<p>
+				</div>
+		
+			</div>
+			
+		</div>
+	</div>
+</div>

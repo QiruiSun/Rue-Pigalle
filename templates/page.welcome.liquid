@@ -1,0 +1,166 @@
+<!-- /templates/page.welcome.liquid -->
+
+{% comment %}
+	WE MOVED THIS MAIN-CONTENT TAG HERE FROM theme.liquid FOR THE 100% WIDE Areas wrapping the WRAPPER CLASS FOR GREY BGS AND WHATNOT... so that oughta follow through in the other template files: 
+	
+	<div (or main) class="main-content" role="main"> //this is full-width
+		<div class="wrapper">....</div> //this has the padding on the sides
+	</div (or main)>
+	
+{% endcomment %}
+
+<div class="main-content" role="main">
+	<div class="stl-content">	
+		
+			<div class="grid">
+				
+				<div class="grid__item large--one-half">
+				  {{ 'shoplook-placeholder.png' | asset_url | img_tag: 'Shop the Look Placeholder', 'img-respo' }}
+				</div>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/8w5EifbKbCU?rel=0&amp;controls=0&amp;showinfo=0;&autoplay=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>				
+
+				<div class="grid__item  large--one-half">			  
+					<div class="stl-text-box">
+						<h3 class="deco-headline">{{ settings.shop-the-look-title }}</h3>
+						
+						<h5 class="stl-subs">Designer</h5>
+						<div class="stl-box-line"></div>
+						<p>Lorem Ipsum </p>
+						
+						<h5 class="stl-subs">About the Look</h5>
+						<div class="stl-box-line"></div>
+						<p>{{ settings.shop-the-look-about }}</p>
+					</div>				
+				</div>
+				
+			</div>
+	
+	</div>	
+</div>
+
+<div class="main-content hp-usp-section">	
+
+	<div class="wrapper"> 
+		<h2 class="hp-main-section">Why Shop <span>Rue Pigalle?</span></h2>
+		
+		<div class="hp-main-section-line"></div>
+				
+		<div class="grid usp-zone">
+		
+			<div class="grid__item one-half large--one-quarter">
+				<div class="fancy-box">
+					<h3 class="fancy-box-orn-one">Lorem Ipsum</h3>
+					<h4>Sit Dolor Amet</h4>
+					<p>Behind the word towns far from the countries</p>
+				</div>
+			</div>
+		
+			<div class="grid__item one-half large--one-quarter">
+				<div class="fancy-box hori-seperator">
+					<h3 class="no-orn">Lorem Ipsum</h3>
+					<h4>Sit Dolor Amet</h4>
+					<div class="fancy-box-line"></div>
+					<p>Behind the word towns far from the countries</p>
+				</div>
+			</div>
+		
+			<div class="grid__item one-half large--one-quarter">
+				<div class="fancy-box hori-seperator">
+					<h3 class="fancy-box-orn-two">Lorem Ipsum</h3>
+					<h4>Sit Dolor Amet</h4>
+					<p>Behind the word towns far from the countries</p>
+				</div>
+			</div>
+		
+			<div class="grid__item one-half large--one-quarter">
+				<div class="fancy-box hori-seperator">
+					<h3 class="no-orn">Lorem Ipsum</h3>
+					<h4>Sit Dolor Amet</h4>
+					<div class="fancy-box-line"></div>
+					<p>Behind the word towns far from the countries</p>
+				</div>
+			</div>
+		
+		</div>		
+	</div>
+
+</div>
+
+<div class="main-content hp-vid-section">	
+	
+	<div class="wrapper">
+		<div class="grid-uniform text-center">
+			  
+			<div class="grid__item two-thirds">
+				<iframe src="https://player.vimeo.com/video/109147447?color=010101&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</div>
+			
+			<div class="grid__item one-third">
+			
+				<div class="right-coaster-box">
+					<h3>Studio Visit Hilite</h3>
+					<p>Behind the word towns far from countries there live the blind texts.Behind the word towns far from countries there live the blind texts. </p>
+					<a class="btn--secondary blk">Book a Visit</a>
+				</div>
+			</div>
+
+		</div>
+		<br>
+	</div>	
+	
+</div>
+
+<div class="main-content hp-grey-section">
+		
+	<div class="wrapper">		
+		
+		<h2 class="hp-main-section-alt"><small>Follow us on</small>Instagram</h2>
+		<div class="orn-rule-disc"></div>
+		<br>
+		<div class="grid">
+			<div class="grid__item one-fifth medium--one-whole">
+				{{ 'placeholder-insta1.jpg' | asset_url | img_tag: 'Shop the Look Placeholder', 'img-respo' }}
+			</div>
+			<div class="grid__item one-fifth medium--one-whole">
+				{{ 'placeholder-insta2.jpg' | asset_url | img_tag: 'Shop the Look Placeholder', 'img-respo' }}
+			</div>
+			<div class="grid__item one-fifth medium--one-whole">
+				{{ 'placeholder-insta3.jpg' | asset_url | img_tag: 'Shop the Look Placeholder', 'img-respo' }}
+			</div>
+			<div class="grid__item one-fifth medium--one-whole">
+				{{ 'placeholder-insta4.jpg' | asset_url | img_tag: 'Shop the Look Placeholder', 'img-respo' }}
+			</div>
+			<div class="grid__item one-fifth medium--one-whole">
+				{{ 'placeholder-insta5.jpg' | asset_url | img_tag: 'Shop the Look Placeholder', 'img-respo' }}
+			</div>
+		</div>		
+		<br><br>	 		
+	</div>	
+	
+</div>
+
+<div class="main-content hp-contrast-section">	
+	
+	<div class="wrapper">
+		<div class="grid">
+			{{ store.metafields }}
+			<div class="grid__item one-half medium--one-whole">
+				<h3 class="hp-cta"><em>Be in the know.</em> Get on the List.</h3>
+			</div>
+			<div class="grid__item one-half medium--one-whole">
+				
+				<form method="post" action="/contact#contact_form" id="contact_form" class="contact-form" accept-charset="UTF-8">
+				    <div class="input-group">
+				    	<input type="email" value="" placeholder="email@example.com" name="contact[email]" id="Email" class="input-group-field" aria-label="email@example.com" autocorrect="off" autocapitalize="off">				   	
+				    	<span class="input-group-btn">
+				    		<input type="submit" class="btn" name="subscribe" id="subscribe" value="SUBSCRIBE">
+				    	</span>
+				    </div>            	
+				</form>
+				
+			</div>
+			
+		</div>
+	</div>	
+	
+</div>

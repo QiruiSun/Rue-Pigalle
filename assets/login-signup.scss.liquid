@@ -1,0 +1,93 @@
+// Login - Signup
+
+.login-page {
+	background-image: url({{ 'signin-background' | asset_url }});
+}
+
+.register-page, .wishlist-login {
+	background-image: url({{ 'register-background' | asset_url }});
+}
+
+.login-page, .register-page {
+	background-size: cover;
+	margin-top: -90px;
+
+	.dialog {
+		max-width: 700px !important;
+		padding: 20px 80px;
+		padding-top: 140px;
+
+		.sign-in, .register {
+
+			background-color: rgba(255, 255, 255, 0.8);
+			padding: 40px;
+
+			label {
+				margin-top: 10px;
+				font-size: 0.85em;
+			}
+
+			h2 {
+				font-weight: 300;
+			}
+
+			ul {
+				li {
+					color: rgb(240, 101, 164);
+					span {
+						color: #333333;
+					}
+				}
+			}
+
+			.marketing {
+				margin: 10px 5px;
+				margin-bottom: 40px;
+				font-size: 0.9em;
+				line-height: 1.0em;
+				height: auto;
+
+				#marketing-box {
+					display:none;
+				}
+
+				#marketing-box + label {
+					margin-top: 0;
+					margin-right: 10px;
+					float: left;
+					border: 1px solid rgb(240, 101, 164);
+					padding: 9px;
+					display: inline-block;
+					position: relative;
+				}
+
+				#marketing-box:checked + label {
+					border: 1px solid rgb(240, 101, 164);
+					color: #333;
+				}
+
+				#marketing-box:checked + label:after {
+					content: '\2713';
+					font-size: 25px;
+					position: absolute;
+					top: 2px;
+					left: 0px;
+					color: #333;
+				}
+				
+				p {
+					margin-top: 0;
+					display: inline-block;
+					float: left;
+					width: 80%;
+					vertical-align: middle;
+				}
+
+				.register-button {
+					display: block;
+					margin-top: 30px;
+				}
+			}
+		}
+	}
+}
