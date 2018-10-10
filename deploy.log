@@ -1,0 +1,87 @@
+Deploy error @ Tue Oct 09 2018 21:45:53 GMT-0400 (EDT). added/changed 1 file(s): templates/blog.trips.
+Error: Invalid configuration: invalid store domain must end in '.myshopify.com'
+Usage:
+  theme upload <filenames> [flags]
+
+Flags:
+  -a, --allenvs   run command with all environments
+
+Global Flags:
+  -c, --config string         path to config.yml (default "/Users/otherOther/trip_theme/dist/config.yml")
+  -d, --dir string            directory that command will take effect. (default current directory)
+  -e, --env string            environment to run the command (default "development")
+      --ignored-file string   A single file to ignore, use the flag multiple times to add multiple.
+      --ignores string        A path to a file that contains ignore patterns.
+      --no-update-notifier    Stop theme kit from notifying about updates.
+  -p, --password string       theme password. This will override what is in your config.yml
+      --proxy string          proxy for all theme requests. This will override what is in your config.yml
+  -s, --store string          your shopify domain. This will override what is in your config.yml
+  -t, --themeid string        theme id. This will override what is in your config.yml
+      --timeout duration      the timeout to kill any stalled processes. This will override what is in your config.yml
+  -v, --verbose               Enable more verbose output from the running command.
+
+
+----------------------------------------------------------------
+	ThemeKit - Shopify Theme Utilities 0.6.6
+----------------------------------------------------------------
+
+21:45:53 Invalid configuration: invalid store domain must end in '.myshopify.com'
+ 
+Deploy error @ Tue Oct 09 2018 21:46:03 GMT-0400 (EDT). added/changed 1 file(s): templates/blog.trips.liquid.
+Error: Invalid configuration: invalid store domain must end in '.myshopify.com'
+Usage:
+  theme upload <filenames> [flags]
+
+Flags:
+  -a, --allenvs   run command with all environments
+
+Global Flags:
+  -c, --config string         path to config.yml (default "/Users/otherOther/trip_theme/dist/config.yml")
+  -d, --dir string            directory that command will take effect. (default current directory)
+  -e, --env string            environment to run the command (default "development")
+      --ignored-file string   A single file to ignore, use the flag multiple times to add multiple.
+      --ignores string        A path to a file that contains ignore patterns.
+      --no-update-notifier    Stop theme kit from notifying about updates.
+  -p, --password string       theme password. This will override what is in your config.yml
+      --proxy string          proxy for all theme requests. This will override what is in your config.yml
+  -s, --store string          your shopify domain. This will override what is in your config.yml
+  -t, --themeid string        theme id. This will override what is in your config.yml
+      --timeout duration      the timeout to kill any stalled processes. This will override what is in your config.yml
+  -v, --verbose               Enable more verbose output from the running command.
+
+
+----------------------------------------------------------------
+	ThemeKit - Shopify Theme Utilities 0.6.6
+----------------------------------------------------------------
+
+21:46:03 Invalid configuration: invalid store domain must end in '.myshopify.com'
+ 
+Deploy error @ Tue Oct 09 2018 21:46:03 GMT-0400 (EDT). removed 1 file(s): templates/blog.trips.
+Error: Invalid configuration: invalid store domain must end in '.myshopify.com'
+Usage:
+  theme remove <filenames> [flags]
+
+Flags:
+  -a, --allenvs   run command with all environments
+
+Global Flags:
+  -c, --config string         path to config.yml (default "/Users/otherOther/trip_theme/dist/config.yml")
+  -d, --dir string            directory that command will take effect. (default current directory)
+  -e, --env string            environment to run the command (default "development")
+      --ignored-file string   A single file to ignore, use the flag multiple times to add multiple.
+      --ignores string        A path to a file that contains ignore patterns.
+      --no-update-notifier    Stop theme kit from notifying about updates.
+  -p, --password string       theme password. This will override what is in your config.yml
+      --proxy string          proxy for all theme requests. This will override what is in your config.yml
+  -s, --store string          your shopify domain. This will override what is in your config.yml
+  -t, --themeid string        theme id. This will override what is in your config.yml
+      --timeout duration      the timeout to kill any stalled processes. This will override what is in your config.yml
+  -v, --verbose               Enable more verbose output from the running command.
+
+
+----------------------------------------------------------------
+	ThemeKit - Shopify Theme Utilities 0.6.6
+----------------------------------------------------------------
+
+21:46:03 Invalid configuration: invalid store domain must end in '.myshopify.com'
+ 
