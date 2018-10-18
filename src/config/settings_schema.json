@@ -405,6 +405,65 @@
     ]
   },
   {
+    "name": "Come with me",
+    "settings": [
+      {
+        "type": "image",
+        "id": "banner-background",
+        "label": "Come with me Background Image",
+        "max-width": 4000,
+        "max-height": 4000,
+        "info": "4000 x 4000px .jpg (maximum)"
+      },
+      {
+        "type": "video_url",
+        "id": "come-with-me-video",
+        "label": "Come With Me Video URL",
+        "accept": ["youtube", "vimeo"]
+     }
+    ]
+  },
+
+  {
+    "name": "Events Page",
+    "settings": [
+      {
+        "type": "image",
+        "id": "events-banner",
+        "label": "Events Page Background Image",
+        "max-width": 4000,
+        "max-height": 4000,
+        "info": "4000 x 4000px .jpg (maximum)"
+      },
+      {
+        "type": "video_url",
+        "id": "events-video",
+        "label": "Events Video URL",
+        "accept": ["youtube", "vimeo"]
+     }
+    ]
+  },
+
+  {
+    "name": "Souveniers Page",
+    "settings": [
+      {
+        "type": "image",
+        "id": "souveniers-banner",
+        "label": "Souveniers Page Background Image",
+        "max-width": 4000,
+        "max-height": 4000,
+        "info": "4000 x 4000px .jpg (maximum)"
+      },
+      {
+        "type": "video_url",
+        "id": "souveniers-video",
+        "label": "Souveniers Video URL",
+        "accept": ["youtube", "vimeo"]
+     }
+    ]
+  },
+  {
     "name": "Shop the Look",
     "settings": [
       {

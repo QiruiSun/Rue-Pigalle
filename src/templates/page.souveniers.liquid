@@ -1,0 +1,17 @@
+
+<div class="main-content">
+	<section class="souveniers-banner blog-page-banner">
+		<h3>
+			{{page.title}}
+		</h3>
+		<div class='pink-bar'></div>
+		<h1>Pearls from our travellers</h1>
+	</section>
+	<section class="wrapper">
+		{% assign headline_text = page.content %}
+		{% include 'blog-headline', headline_text: headline_text %}
+		<div class="souveniers-container">
+            {% section 'souveniers-block' %}
+		</div>
+	</section>
+</div>		

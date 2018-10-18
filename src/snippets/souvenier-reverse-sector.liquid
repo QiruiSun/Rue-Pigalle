@@ -1,0 +1,73 @@
+<div class="sector-container">
+    <div class="souvenier-descriptions {{sector_name}}-descriptions">
+        {% if desc1 %}
+        <div class="desc-container">{{ desc1}}</div>
+        {% endif %}
+
+        {% if desc2 %}
+        <div class="desc-container">{{ desc2}}</div>
+        {% endif %}
+
+        {% if desc3 %}
+        <div class="desc-container">{{ desc3}}</div>
+        {% endif %}
+
+        {% if desc4 %}
+        <div class="desc-container">{{ desc4}}</div>
+        {% endif %}
+    </div>
+    <div class="image-gallery {{sector_name}}-gallery ">
+        {% if image1 %}
+        <div>{{ image1 | img_url: '707x707' | img_tag: "souvenier_image_1"}}</div>
+        {% endif %}
+
+        {% if image2 %}
+        <div>{{ image2 | img_url: '707x707' | img_tag: "souvenier_image_2"}}</div>
+        {% endif %}
+
+        {% if image3 %}
+        <div>{{ image3 | img_url: '707x707' | img_tag: "souvenier_image_3"}}</div>
+        {% endif %}
+
+        {% if image4 %}
+        <div>{{ image4 | img_url: '707x707' | img_tag: "souvenier_image_4"}}</div>
+        {% endif %}
+
+    </div>
+</div>
+
+
+
+<script>
+
+var my_sector_name= {{ sector_name | json }};
+var slider_for_name = '.' + my_sector_name + '-gallery';
+var slider_nav_name = '.' + my_sector_name + '-descriptions';
+
+jQuery(document).on('ready', function() {
+    $(slider_nav_name).slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        asNavFor: slider_for_name,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+    $(slider_for_name).slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        asNavFor: slider_nav_name,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        focusOnSelect: false
+    });
+});
+
+</script>
+
+ 
+
+
+ 
+

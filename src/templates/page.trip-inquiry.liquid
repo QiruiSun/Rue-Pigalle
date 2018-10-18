@@ -1,0 +1,135 @@
+<!-- /templates/page.contactliquid -->
+<div class="contact" id="trip-inquiry-page">   
+
+    <div class="floating-square-wrapper">
+        <div class="floating-square" id="trip-inquiry-form">
+            <h1>{{ page.title }}</h1>
+            
+            <div class="rte page-post-editor">
+                {{ page.content }}
+            </div>
+
+            <div class="form-vertical">
+                {% form 'contact' %}
+                    
+                    {% if form.posted_successfully? %}
+                        <p class="note form-success">
+                            {{ 'contact.form.post_success' | t }}
+                        </p>
+                    {% endif %}
+                    
+                    {{ form.errors | default_errors }}
+                    
+                    <div class="row">
+                        <div class="fieldgroup">
+                            {% assign first_name_attr = 'contact.form.first_name' | t | handle %}
+                            <label for="ContactFormFirstName" class="hidden-label">{{ 'contact.form.first_name' | t }}</label>
+                            <input type="text" id="ContactFormFirstName" class="input-full" name="contact[{{ first_name_attr }}]" placeholder="{{ 'contact.form.first_name' | t }}*" autocapitalize="words" value="{% if form[first_name_attr] %}{{ form[first_name_attr] }}{% elsif customer %}{{ customer.first_name }}{% endif %}">
+                        </div>
+                        <div class="fieldgroup">
+                            {% assign last_name_attr = 'contact.form.last_name' | t | handle %}
+                            <label for="ContactFormLastName" class="hidden-label">{{ 'contact.form.last_name' | t }}</label>
+                            <input type="text" id="ContactFormLastName" class="input-full" name="contact[{{ last_name_attr }}]" placeholder="{{ 'contact.form.last_name' | t }}*" autocapitalize="words" value="{% if form[last_name_attr] %}{{ form[last_name_attr] }}{% elsif customer %}{{ customer.last_name }}{% endif %}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="fieldgroup">
+                            <label for="ContactFormEmail" class="hidden-label">{{ 'contact.form.email' | t }}</label>
+                            <input type="email" id="ContactFormEmail" class="input-full" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}*" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="fieldgroup">
+                            {% assign name_attr = 'contact.form.phone' | t | handle %}
+                            <label for="ContactFormPhone" class="hidden-label">{{ 'contact.form.phone' | t }}</label>
+                            <input type="tel" id="ContactFormPhone" class="input-full" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+                        </div>
+                        <div class="fieldgroup">
+                            {% assign number_of_people_attr = 'contact.form.number_of_people' | t | handle %}
+                            <label for="ContactFormnumberOfPeople" class="hidden-label">{{ 'contact.form.number_of_people' | t }}</label>
+                            <input type="tel" id="ContactFormnumberOfPeople" class="input-full" name="contact[{{ number_of_people_attr }}]" placeholder="{{ 'contact.form.number_of_people' | t }}" pattern="[0-9\-]*" value="{% if form[number_of_people_attr] %}{{ form[number_of_people_attr] }}{% elsif customer %}{{ customer.number_of_people }}{% endif %}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="fieldgroup">
+                            {% comment %} I would like to section {% endcomment %}
+                            {% assign inquiry_attr = 'contact.form.inquiry' | t | handle %}
+                            <label for="ContactFormActivity" class="hidden-label" >{{ 'contact.form.inquiry' | t }}</label>
+                            <select id="ContactFormActivity" name="contact[{{inquiry_attr}}]">
+                                <option>{{ 'contact.form.inquiry' | t }}</option>
+                                <option>I have a general question</option>
+                                <option>I would like a detailed quote on a specific journey</option>
+                                <option>I would like to sit down and chat</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="fieldgroup">
+                            {% comment %} Select a journey section {% endcomment %}
+                            {% assign inquiry_attr = 'contact.form.journey' | t | handle %}
+                            <label for="ContactFormJourney" class="hidden-label">{{ 'contact.form.journey' | t }}</label>
+                            <select id="ContactFormJourney" name="contact[{{inquiry_attr}}]">
+                                <option>{{ 'contact.form.journey' | t }}</option>
+                                <option>A</option>
+                                <option>B</option>
+                                <option>C</option>
+                                <option>D</option>
+                                <option>E</option>
+                                <option>F</option>
+                            </select>
+                        </div>
+
+                        <div class="fieldgroup">
+                            {% comment %} Select an event section {% endcomment %}
+                            {% assign event_attr = 'contact.form.event' | t | handle %}
+                            <label for="ContactFormEvent" class="hidden-label">{{ 'contact.form.event' | t }}</label>
+                            <select id="ContactFormEvent" name="contact[{{event_attr}}]">
+                                <option>{{ 'contact.form.event' | t }}</option>
+                                <option>A</option>
+                                <option>B</option>
+                                <option>C</option>
+                                <option>D</option>
+                                <option>E</option>
+                                <option>F</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label for="ContactFormMessage" class="hidden-label">{{ 'contact.form.message' | t }}</label>
+                    <textarea rows="10" id="ContactFormMessage" class="input-full" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}*">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+                    
+                    <div id="re-captcha"></div>
+
+                    <div class="button-container">
+                        <button type="submit" disabled id="contactFormSubmit" class="special-button additional-line" value="SUBMIT">GET IN TOUCH</button>
+                    </div>
+                    
+                {% endform %}
+            </div>                      
+        </div>
+    </div>
+</div>
+
+
+<script>
+  var actCallback = function (response) {
+    $('#contactFormSubmit').prop("disabled", false);
+    $('#re-captcha').remove();
+  };
+  var expCallback = function() {
+    $('#contactFormSubmit').prop("disabled", true);
+  };
+
+  var onloadCallback = function () {
+    var widget = grecaptcha.render(document.getElementById("re-captcha"), {
+      'sitekey' : "6Lerm3UUAAAAAMthWYu2XF7ixg90KZZsdpFnjb86", // Sitekey, Retrieving from reCaptcha
+      'theme': "light",
+      'callback' : actCallback,
+      'expired-callback': expCallback,
+    });
+  }
+</script>

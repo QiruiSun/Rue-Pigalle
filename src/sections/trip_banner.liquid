@@ -1,0 +1,40 @@
+<div id="trip-banner">
+  <div class="banner-container">
+    <h1> {{ section.settings.title }} </h1>
+    <h3> {{ section.settings.header_desc }} </h3>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Trip banner",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Trip Title",
+        "default": "Title"
+      },
+      {
+        "id": "header_desc",
+        "type": "richtext",
+        "label": "Header Description",
+        "default": "Description"
+      },
+      {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Add banner image here",
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+
+.banner-container{
+     background: url('{{ settings.image | img_url }}') width: 100%; background-repeat: no-repeat;
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

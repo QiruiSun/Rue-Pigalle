@@ -46,7 +46,13 @@
   {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
   {{ 'tooltipster.bundle.min.css' | asset_url | stylesheet_tag }}
   {{ 'tooltipster-sideTip-shadow.min.css' | asset_url | stylesheet_tag }}
-	{{ 'join-the-list.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'join-the-list.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'blog-common.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'blog-events.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'souveniers.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'blogpost-common.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'trip-inquiry.scss.css' | asset_url | stylesheet_tag }}
+
 
 
   <!--- Google Search Console ================================================== -->
@@ -541,6 +547,10 @@
 {{ 'slick.min.js' | asset_url | script_tag }}
 {{ 'timber.js' | asset_url | script_tag }}
 
+{% comment %}  Google reCaptcha Snippet {% endcomment %}
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+
 <script>
   {% if resetPassword %}
     $(function() {
@@ -559,6 +569,8 @@
   {% include 'ajax-cart-template' %}
   {{ 'ajax-cart.js' | asset_url | script_tag }}
 <script>
+
+
 	jQuery(function($) {
 	  ajaxCart.init({
 	    formSelector: '#AddToCartForm',
@@ -581,6 +593,24 @@
 {% endif %}
 
 jQuery(document).on('ready', function() {
+
+	
+	$(".special-button").hover(function() {
+		$(this).removeClass('additional-line');
+	}, function() {
+		$(this).addClass('additional-line');
+	});
+
+
+
+	$(".post-img-gallery").slick({
+		infinite: true,
+		slidesToShow: 1,
+		arrows: true,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		dots: true,
+	});
 
 	$(".hero").slick({
 		infinite: true,

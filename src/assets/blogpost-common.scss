@@ -1,3 +1,30 @@
+
+$small: 480px;
+$medium: 768px;
+$large: 1024px;
+
+$min: min-width;
+$max: max-width;
+@mixin at-query ($constraint_, $viewport1_, $viewport2_:null) {
+ $constraint: $constraint_; $viewport1: $viewport1_; $viewport2: $viewport2_;
+  @if type-of($constraint_) == number {
+    $viewport1 : $constraint_; $viewport2 : $viewport1_; $constraint : null;
+  }
+  @if $constraint == $min {
+    @media screen and ($min: $viewport1) {
+      @content;
+    }
+  } @else if $constraint == $max {
+    @media screen and ($max: $viewport1) {
+      @content;
+    }
+  } @else {
+    @media screen and ($min: $viewport1) and ($max: $viewport2) {
+      @content;
+    }
+  }
+}
+
 $pink: #F065A4;
 
 #trip-banner {
@@ -18,6 +45,7 @@ $pink: #F065A4;
 
 .desc-details {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 40px;
 }
 
@@ -74,11 +102,11 @@ $pink: #F065A4;
     .additional-line:before {
         content: " ";
         position: absolute;
-        z-index: -1;
+        z-index: 1;
         top: -5px;
         left: -5px;
         height: 30px;
-        width: 107px;
+        width: 100%;
         border: 1px solid $pink;
     }   
 }
@@ -89,6 +117,7 @@ $pink: #F065A4;
 
 .trip-itinerary-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     height: 500px;
     margin-top: 80px;
@@ -109,5 +138,48 @@ $pink: #F065A4;
 
     .button-container {
         margin-bottom: 25px;
+    }
+}
+
+
+@include at-query ($max, $medium) {
+
+    .key-factors,  .itinerary-content, .itinerary-img, .post-intro {
+        width: 100%;
+    }
+
+    .key-factors {
+        padding-left: 0px;
+        text-align: center;
+    }
+
+    .post-img-gallery .each-img {
+        height: auto;
+    }
+
+    .itinerary-img {
+        margin-bottom: 50px;
+    }
+
+    .trip-itinerary-container {
+        height: auto;
+    }
+
+    .itinerary-content {
+        overflow: auto;
+    }
+
+    .blogs-container {
+        .blog__item {
+            width: 100%
+        }
+    }
+
+    #trip-inquiry-form {
+        .row {
+            .fieldgroup {
+                width: 100%;
+            }
+        }
     }
 }
