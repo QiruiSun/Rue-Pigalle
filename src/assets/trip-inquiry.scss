@@ -1,0 +1,65 @@
+
+#trip-inquiry-page {
+    .floating-square {
+        max-width: 700px;
+    }
+}
+
+
+#trip-inquiry-form {
+    padding-top: 40px;
+
+    
+
+    .form-vertical {
+        width: 100%;
+        margin-bottom: 80px;
+    }
+
+    h1 {
+        text-align: left;
+        font-size: 24px;
+        font-weight: 500 !important; // to overwrite rules in timbercustom.scss
+        color: black;
+        padding: 30px 0px 10px 0px;
+    }
+
+    .rte.page-post-editor {
+        margin-bottom: 40px;
+    }
+
+    input, select, textarea {
+        font-size: 12px;
+        margin-bottom: 30px;
+        padding: 10px 30px;
+        width: 100%;
+        border: 1px solid;
+        text-transform: uppercase;
+        font-weight: 500;
+
+        &::placeholder {
+            color:black
+        }
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .fieldgroup {
+
+            &:only-child {
+                width: 100%;
+            }
+        }
+    }
+
+    .fieldgroup {        
+        width: 45%;
+    }
+}
+
+div#re-captcha {
+    margin-bottom: 30px;
+}
