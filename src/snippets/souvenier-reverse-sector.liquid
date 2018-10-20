@@ -1,9 +1,16 @@
 <div class="sector-container">
     <div class="souvenier-descriptions {{sector_name}}-descriptions">
         {% if desc1 %}
-        <div class="desc-container">{{ desc1}}</div>
+        <div class="desc-container">
+          
+          {{ desc1}}
+          
+          <p class="tagline"> PARIS, FRANCE 2018 </p>
+      	</div>
+      
         {% endif %}
-
+      
+<!-- 
         {% if desc2 %}
         <div class="desc-container">{{ desc2}}</div>
         {% endif %}
@@ -14,7 +21,10 @@
 
         {% if desc4 %}
         <div class="desc-container">{{ desc4}}</div>
-        {% endif %}
+        {% endif %} -->
+      
+      	
+      
     </div>
     <div class="image-gallery {{sector_name}}-gallery ">
         {% if image1 %}
@@ -45,18 +55,10 @@ var slider_for_name = '.' + my_sector_name + '-gallery';
 var slider_nav_name = '.' + my_sector_name + '-descriptions';
 
 jQuery(document).on('ready', function() {
-    $(slider_nav_name).slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        asNavFor: slider_for_name,
-        autoplay: true,
-        autoplaySpeed: 2000,
-    });
+
     $(slider_for_name).slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        asNavFor: slider_nav_name,
         dots: true,
         autoplay: true,
         autoplaySpeed: 2000,
