@@ -67,10 +67,18 @@ $pink: #F065A4;
     #shr_canvas2 {
         margin-top: -30px;
         height: 60px;
+        margin-left: -15px;
     }
 
+  
+    /* just so we can overwrite styles from shareholic, had to use important */
     i.shareaholic-service-icon {
-        background: $pink !important;
+        font-size: 20px !important;
+        height: 25px !important;
+        width: 25px !important;
+        color: $pink !important;
+        border: none !important;
+        background-color: white !important;
     }
 }
 
@@ -112,7 +120,21 @@ $pink: #F065A4;
 }
 
 .post-img-gallery .each-img {
-    height: 600px;
+
+    .img-container {
+        position: relative;
+
+        .img-desc {
+            position: absolute;
+            width: 200px;
+            padding: 20px;
+            background-color: white;
+            bottom: 13%;
+            left: 7%;
+            text-transform: uppercase;
+        }
+    }
+  
 }
 
 .trip-itinerary-container {
@@ -182,4 +204,31 @@ $pink: #F065A4;
             }
         }
     }
+
+    .souveniers-container .sector-container {
+        height: auto;
+    }
+    
+    .souvenier-descriptions {
+        margin-bottom: 30px;
+        
+        .desc-container {
+            p {
+                &.tagline {
+                    top: 29%;
+                    right: -9%;
+                }
+    
+            }
+        }
+    }
+
+    .image-gallery, .souvenier-descriptions {
+        width: 100%;
+
+        div.desc-container {
+            height: auto;
+        }
+    }
+
 }
