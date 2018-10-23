@@ -1,4 +1,31 @@
-<div class="sector-container">
+<div class="sector-container reverse-souvenir-sector">
+    <div class="souvenier-descriptions {{sector_name}}-descriptions">
+        {% if desc1 %}
+        <div class="desc-container">
+          
+          {{ desc1}}
+          
+          <p class="tagline"> PARIS, FRANCE 2018 </p>
+      	</div>
+        <div class='shareaholic-canvas share-buttons' data-app='share_buttons' data-app-id='25501593'></div>
+        {% endif %}
+      
+<!-- 
+        {% if desc2 %}
+        <div class="desc-container">{{ desc2}}</div>
+        {% endif %}
+
+        {% if desc3 %}
+        <div class="desc-container">{{ desc3}}</div>
+        {% endif %}
+
+        {% if desc4 %}
+        <div class="desc-container">{{ desc4}}</div>
+        {% endif %} -->
+      
+      	
+      
+    </div>
     <div class="image-gallery {{sector_name}}-gallery ">
         {% if image1 %}
         <div>{{ image1 | img_url: '707x707' | img_tag: "souvenier_image_1"}}</div>
@@ -16,29 +43,6 @@
         <div>{{ image4 | img_url: '707x707' | img_tag: "souvenier_image_4"}}</div>
         {% endif %}
 
-    </div>
-    <div class="souvenier-descriptions {{sector_name}}-descriptions">
-        {% if desc1 %}
-            <div class="desc-container">
-                {{ desc1}}
-                <p class="tagline"> PARIS, FRANCE 2018 </p>
-               
-            </div>
-             <div class='shareaholic-canvas share-buttons' data-app='share_buttons' data-app-id='25501593'></div>
-        {% endif %}
-
-<!--         {% if desc2 %}
-        <div class="desc-container">{{ desc2}}</div>
-        {% endif %}
-
-        {% if desc3 %}
-        <div class="desc-container">{{ desc3}}</div>
-        {% endif %}
-
-        {% if desc4 %}
-        <div class="desc-container">{{ desc4}}</div>
-        {% endif %} -->
-      	
     </div>
 </div>
 

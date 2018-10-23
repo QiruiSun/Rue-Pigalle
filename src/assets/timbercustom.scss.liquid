@@ -996,7 +996,7 @@ a[data-zoom-id] img, .mz-thumb img {
 
 .nav-bar {
     background-color: rgba(255, 255, 255, 0.65);    
-	padding-left: 56px;
+	padding-left: 200px;
 }
 
 
@@ -1101,11 +1101,13 @@ a[data-zoom-id] img, .mz-thumb img {
 
 .site-header {
 	padding: 0 0 !important;
+	padding-top: 20px !important;
 	position: fixed;
 	z-index: 11222;
 	top: 83px;
 	width: 100%;
 	border-bottom: none;
+	background-color: white;
 }
 
 // Topbar or Header
@@ -1113,9 +1115,9 @@ a[data-zoom-id] img, .mz-thumb img {
     position: fixed;
     z-index: 8999;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.65);
+    background-color: white;
     height: 55px;
-    padding: 8px 66px;
+    padding: 23px 66px;
     top: 28px;
 
 	input, textarea, select {
@@ -1380,7 +1382,7 @@ h3.deco-headline {
 		display: block;
 		float: left;
 		background-image: url(deco-headline-bg.png);
-		background-size: 72px;
+		background-size: 55px;
 		background-repeat: no-repeat;
 		background-position-x: left;
 		height: 72px;
@@ -1698,7 +1700,7 @@ div.hero-button {
 	
 	@media (min-width: 1024px) {
 		height: 607px;
-		padding-top: 120px;
+		padding-top: 90px;
 	}
 	@media (min-width: 0px) and (max-width: 768px) {
 		background-position-x: center;
@@ -1733,7 +1735,7 @@ footer small {
     z-index: 2000;
     position: relative;
     margin-left: -100px;
-    margin-top: 142px;
+    margin-top: 85px;
     margin-bottom: 17px;
 }
 
@@ -1761,9 +1763,13 @@ content: '';
 		font-weight: 800;
 	}
 	p {
-	font-weight: 300;
-	font-size: 1.1em;	   
-	letter-spacing: 0;
+		font-weight: 300;
+		font-size: 17px;
+		line-height: 24px;
+		letter-spacing: 0.5px;
+	}
+	a {
+		display: none;
 	}
 }
 
@@ -2181,14 +2187,20 @@ blockquote {
 .social-icons li a {
     color: #bcbcbc;
 }
-a, .text-link {
-    color: #f065a4;
-    text-decoration: none;
-    background: transparent;
+
+p {
+	a, .text-link {
+		color: #f065a4;
+		background: transparent;
+		text-decoration: underline;
+		font-weight: 600;
 	
-	&:hover {color:darken(#f065a4,10%)}
-	&:focus {color:darken(#f065a4,10%)}
+		&:hover {color:darken(#f065a4,10%)}
+		&:focus {color:darken(#f065a4,10%)}
+	}
 }
+
+
 
 footer h4 {
     text-transform: uppercase;
@@ -2213,12 +2225,20 @@ footer h4 {
 		
 	}
 	.footer-list-typo.need-to-know a.telno {
+		font-size: 13px;
     	color: #f1572a !important;	
 		&:hover {
 			color:#fff !important;	
 		}
 		
 	}
+
+	.wrapper {
+		@include at-query ($min, $small) {
+			padding: 0 10px;
+		}
+	}
+	
 }
 
 
@@ -2399,6 +2419,8 @@ hr {
 
 
 #user-panel {
+	margin-top: -20px;
+
 	ul.inline-list {
 		li {
 			padding: 0 5px !important;
@@ -2713,10 +2735,11 @@ medium-down--one-whole.sidebar-border {
 }
 
 div.mailchimp-copy {
-	font-size: 1.4rem;
-	margin-bottom: 30px;
-	margin-top: 30px;
-	font-weight: 400;
+	font-size: 22px;
+    margin-bottom: 30px;
+    line-height: 30px;
+    margin-top: 30px;
+    font-weight: 400;
 	p {
 		font-size: 1.4rem;
 		margin-bottom: 30px;

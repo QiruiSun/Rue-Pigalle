@@ -1,20 +1,40 @@
 <script>
+/*
   var actCallback = function (response) {
-    $('#contactFormSubmit').prop("disabled", false);
+    $('.recaptcha-needed').removeClass('recaptcha-needed');
+    // $('#contactFormSubmit').prop("disabled", false);
+    $('.recaptcha-needed').remove();
     $('#re-captcha').remove();
   };
   var expCallback = function() {
-    $('#contactFormSubmit').prop("disabled", true);
+    // $('#contactFormSubmit').prop("disabled", true);
+    $('.recaptcha-needed').addClass('recaptcha-needed');
   };
 
+  jQuery(document).on('ready', function() {
+      $('#contactFormSubmit').click(function(ev) {
+          
+          var indicator = $('.recaptcha-needed');
+          if (indicator && indicator.length > 0) {
+              if (indicator.hasClass('recaptcha-needed')) {
+                  ev.preventDefault();
+                  indicator.removeAttr('hidden');
+              }
+          }
+      })
+  })
+
   var onloadCallback = function () {
-    var widget = grecaptcha.render(document.getElementById("re-captcha"), {
-      'sitekey' : "6Lerm3UUAAAAAMthWYu2XF7ixg90KZZsdpFnjb86", // Sitekey, Retrieving from reCaptcha
-      'theme': "light",
-      'callback' : actCallback,
-      'expired-callback': expCallback,
-    });
-  }
+    if ($('#re-captcha').length > 0) {
+        var widget = grecaptcha.render(document.getElementById("re-captcha"), {
+            'sitekey' : "6Lerm3UUAAAAAMthWYu2XF7ixg90KZZsdpFnjb86", // Sitekey, Retrieving from reCaptcha
+            'theme': "light",
+            'callback' : actCallback,
+            'expired-callback': expCallback,
+        });
+    } 
+  };
+*/
 </script>
 
 <!-- /templates/page.contactliquid -->
@@ -121,10 +141,14 @@
                     <label for="ContactFormMessage" class="hidden-label">{{ 'contact.form.message' | t }}</label>
                     <textarea rows="10" id="ContactFormMessage" class="input-full" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}*">{% if form.body %}{{ form.body }}{% endif %}</textarea>
                     
-                    <div id="re-captcha"></div>
+                    {% comment %} <div id="re-captcha"></div>
+
+                    <div class="recaptcha-needed not-clicked" hidden>
+                        Please click above field to indicate you are not a robot.
+                    </div> {% endcomment %}
 
                     <div class="button-container">
-                        <button type="submit" disabled id="contactFormSubmit" class="special-button additional-line" value="SUBMIT">GET IN TOUCH</button>
+                        <button type="submit"  id="contactFormSubmit" class="special-button additional-line" value="SUBMIT">GET IN TOUCH</button>
                     </div>
                     
                 {% endform %}

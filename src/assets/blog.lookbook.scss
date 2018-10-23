@@ -1,5 +1,13 @@
 .lookbook-blog {
 
+
+  //  this is how we are dynamically setting background image for trip and event page
+  .banner-container {
+    background-image: url({{ 'banner-background' | asset_url }});
+    width: 100%; 
+    background-repeat: no-repeat;
+  }
+
   margin-top: 60px;
 
   h1 {

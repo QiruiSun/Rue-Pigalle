@@ -3,6 +3,10 @@ $small: 480px;
 $medium: 768px;
 $large: 1024px;
 
+$p-size: 13px;
+$small-ls: 0.5px;
+
+
 $min: min-width;
 $max: max-width;
 @mixin at-query ($constraint_, $viewport1_, $viewport2_:null) {
@@ -28,33 +32,60 @@ $max: max-width;
 $pink: #F065A4;
 
 #trip-banner {
-    padding-top: 180px;
+    background-size: cover;
+    height: 380px;
+    margin-bottom: 100px;
     padding-left: 0px;
     text-align: center;
 
+    img {
+        margin-top: 110px;
+    }
+
     h1 {
         margin: auto;
-        width: 60%;
-        font-size: 32px;
+        width: 50%;
+        font-size: 24px;
+        letter-spacing: 1.5px;
+        margin-top: 30px;
+        color: white;
+        font-weight: 400 !important;
     }
 
     h3 {
         padding-top: 50px;
+        color: white;
+        font-size: 17px;
+        font-weight: 400;
     }
 } 
 
 .desc-details {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
 }
 
 .key-factors {
     width: 35%;
     padding-left: 15%;
 
+    h3 {
+        font-size: $p-size;
+        letter-spacing: 1.5px;
+        color: black;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-weight: 300;
+        font-size: 17px;
+        margin-bottom: 0px;
+    }
+
     div {
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
 
     i.shareaholic-service-icon {
@@ -62,10 +93,10 @@ $pink: #F065A4;
     }
 }
 
-.key-factors, .itinerary-footer {
+.key-factors, .souvenier-descriptions {
 
-    #shr_canvas2 {
-        margin-top: -30px;
+    .shareaholic-canvas {
+        margin-top: -70px;
         height: 60px;
         margin-left: -15px;
     }
@@ -76,44 +107,83 @@ $pink: #F065A4;
         font-size: 20px !important;
         height: 25px !important;
         width: 25px !important;
-        color: $pink !important;
+        color: #ffa2cc !important;
+        padding: 16px;
+        border: none !important;
+        background-color: white !important;
+    }
+}
+
+.itinerary-footer {
+    .shareaholic-canvas {
+        height: 60px;
+        margin-left: -15px;
+    }
+
+      /* just so we can overwrite styles from shareholic, had to use important */
+      i.shareaholic-service-icon {
+        font-size: 20px !important;
+        height: 25px !important;
+        width: 25px !important;
+        color: #ffa2cc !important;
+        padding: 16px;
         border: none !important;
         background-color: white !important;
     }
 }
 
 .post-intro {
-    width: 50%;
+    width: 55%;
 
     h1 {
         color: black;
-        font-size: 34px;
+        font-size: 28px;
+        letter-spacing: $small-ls;
         font-weight: 400 !important;
     }
 
     h4 {
-        color: grey;
-        font-size: 14px;
+        color: #b0b0b0;
+        font-size: $p-size;
+        letter-spacing: 1.5px;
+    }
+
+    p {
+        width: 95%;
+        font-size: 17px;
+        line-height: 24px;
     }
 }
 
 .button-container {
+    padding-top: 10px;
+    margin-top: -10px;
+
     .special-button {
         position: relative;
-        padding: 5px 30px;
+        padding: 11px 33px;
         background-color: $pink;
         font-size: 12px;
         color: white;
+        font-weight: 700;
         margin-left: 6px;
+        z-index: 2;
+        
+        a {
+            color: white;
+            font-weight: 500;
+        }
     }
 
     .additional-line:before {
         content: " ";
+        margin-right: 10px;
+        margin-bottom: 10px;
         position: absolute;
-        z-index: 1;
+        z-index: -1;
         top: -5px;
         left: -5px;
-        height: 30px;
+        height: 100%;
         width: 100%;
         border: 1px solid $pink;
     }   
@@ -128,10 +198,14 @@ $pink: #F065A4;
             position: absolute;
             width: 200px;
             padding: 20px;
+            opacity: 0.65;
             background-color: white;
             bottom: 13%;
             left: 7%;
             text-transform: uppercase;
+            font-weight: 500;
+            font-size: $p-size;
+            letter-spacing: $small-ls;
         }
     }
   
@@ -141,8 +215,8 @@ $pink: #F065A4;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    height: 500px;
-    margin-top: 80px;
+    height: 620px;
+    margin-top: 50px;
     margin-bottom: 80px;
 }
 
@@ -153,6 +227,30 @@ $pink: #F065A4;
 .itinerary-content {
     width: 45%;
     overflow-y: scroll;
+
+    h2 {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 50px;
+        letter-spacing: 0.75px;
+    }
+    
+    .each-block {
+        margin-bottom: 40px;
+
+        h4 {
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 24px;
+            letter-spacing: 0.5px;
+        }
+    }
+
 }
 
 .itinerary-footer {
@@ -160,6 +258,10 @@ $pink: #F065A4;
 
     .button-container {
         margin-bottom: 25px;
+
+        .special-button {
+            padding: 11px 45px;
+        }
     }
 }
 
@@ -179,6 +281,13 @@ $pink: #F065A4;
         height: auto;
     }
 
+    .blog-page-banner {
+        h1 {
+            width: 90%;
+            font-size: 26px;
+        }
+    }
+
     .itinerary-img {
         margin-bottom: 50px;
     }
@@ -193,7 +302,9 @@ $pink: #F065A4;
 
     .blogs-container {
         .blog__item {
-            width: 100%
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
     }
 
@@ -229,6 +340,14 @@ $pink: #F065A4;
         div.desc-container {
             height: auto;
         }
+    }
+
+    .main-content .slick-dots {
+        bottom: 5%;
+    }
+
+    .nav-bar {
+        padding-left: 60px;
     }
 
 }

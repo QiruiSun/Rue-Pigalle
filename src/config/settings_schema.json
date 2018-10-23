@@ -485,9 +485,10 @@
         "label": "First Heading (automatically uppercase)"
       },
       {
-        "type": "text",
         "id": "shop-the-look-designer",
-        "label": "Text under the 'designer' heading."
+        "label": "Text under the 'designer' heading.",
+        "type": "richtext",
+        "default": "<p>desc</p>"
       },
       {
         "type": "text",

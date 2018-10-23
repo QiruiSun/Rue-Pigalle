@@ -3,13 +3,20 @@
 {% include 'souvenier-sector', sector_name: 'sector_1', 
     image1: section.settings.image1, image2: section.settings.image2,
     image3: section.settings.image3, image4: section.settings.image4,
-    desc1: section.settings.souvenier_desc1, 
-    desc2: section.settings.souvenier_desc2
-    desc3: section.settings.souvenier_desc3
-    desc4: section.settings.souvenier_desc4 
+    desc1: section.settings.souvenier_desc1
 %}
-{% include 'souvenier-reverse-sector', sector_name: 'sector_2' %}
-{% include 'souvenier-sector', sector_name: 'sector_3' %}
+{% include 'souvenir-reverse-sector', sector_name: 'sector_2',
+
+	  image1: section.settings.image5, image2: section.settings.image6,
+    image3: section.settings.image7, image4: section.settings.image8,
+    desc1: section.settings.souvenier_desc2
+%}
+{% include 'souvenier-sector', sector_name: 'sector_3', 
+  	image1: section.settings.image9, image2: section.settings.image10,
+    image3: section.settings.image11, image4: section.settings.image12,
+    desc1: section.settings.souvenier_desc3
+
+%}
 
 
 {% schema %}
@@ -19,28 +26,48 @@
       {
         "id": "image1",
         "type": "image_picker",
-        "label": "Add the first souvenier image here"
+        "label": "Add the first souvenier image here for first section of the page"
       },
       {
         "id": "image2",
         "type": "image_picker",
-        "label": "Add the second souvenier image here"
+        "label": "Add the second souvenier image here for first section of the page"
       },
       {
         "id": "image3",
         "type": "image_picker",
-        "label": "Add the third souvenier image here"
+        "label": "Add the third souvenier image here for first section of the page"
       },
       {
         "id": "image4",
         "type": "image_picker",
-        "label": "Add the fourth souvenier image here"
+        "label": "Add the fourth souvenier image here for first section of the page"
       },
       {
         "id": "souvenier_desc1",
         "type": "richtext",
-        "label": "First Souvenier desc",
+        "label": "First Souvenier description",
         "default": "<p>desc</p>"
+      },
+          {
+        "id": "image5",
+        "type": "image_picker",
+        "label": "Add the first souvenier image here for second section of the page"
+      },
+      {
+        "id": "image6",
+        "type": "image_picker",
+        "label": "Add the second souvenier image here for second section of the page"
+      },
+      {
+        "id": "image7",
+        "type": "image_picker",
+        "label": "Add the third souvenier image here for second section of the page"
+      },
+      {
+        "id": "image8",
+        "type": "image_picker",
+        "label": "Add the fourth souvenier image here for second section of the page"
       },
       {
         "id": "souvenier_desc2",
@@ -48,18 +75,34 @@
         "label": "Second Souvenier desc",
         "default": "<p>desc</p>"
       },
+		{
+        "id": "image9",
+        "type": "image_picker",
+        "label": "Add the first souvenier image here for third section of the page"
+      },
+      {
+        "id": "image10",
+        "type": "image_picker",
+        "label": "Add the second souvenier image here for third section of the page"
+      },
+      {
+        "id": "image11",
+        "type": "image_picker",
+        "label": "Add the third souvenier image here for third section of the page"
+      },
+      {
+        "id": "image12",
+        "type": "image_picker",
+        "label": "Add the fourth souvenier image here for third section of the page"
+      },
+
       {
         "id": "souvenier_desc3",
         "type": "richtext",
         "label": "Third Souvenier desc",
         "default": "<p>desc</p>"
-      },
-      {
-        "id": "souvenier_desc4",
-        "type": "richtext",
-        "label": "Fourth Souvenier desc",
-        "default": "<p>desc</p>"
       }
+
 
     ]
   }

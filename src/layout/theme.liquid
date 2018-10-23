@@ -51,7 +51,9 @@
   {{ 'blog-events.scss.css' | asset_url | stylesheet_tag }}
   {{ 'souveniers.scss.css' | asset_url | stylesheet_tag }}
   {{ 'blogpost-common.scss.css' | asset_url | stylesheet_tag }}
-	{{ 'trip-inquiry.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'trip-inquiry.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'common-fix.scss.css' | asset_url | stylesheet_tag }}
+
 
 
 
@@ -443,7 +445,7 @@
 						<div class="grid">
 
 									{% if settings.footer_social_enable %}
-										<div class="grid__item large--one-quarter medium--one-half text-center">
+										<div class="grid__item large--one-fifth medium--one-half text-center">
 										  <h4 class="text-center">Contact Us</h4>
 											 <ul class="no-bullets footer-list-typo need-to-know">
 										    <li><a href="/pages/lets-talk" class="btn telno">INQUIRE ABOUT OUR TRIPS</a></li>
@@ -453,7 +455,7 @@
 										</div>
 									{% endif %}
 
-									<div class="grid__item large--one-quarter medium--one-half text-center">
+									<div class="grid__item large--one-fifth medium--one-half text-center">
 										<h4 class="text-center">Connect</h4>
 									   <ul class="inline-list social-icons">
 									       <li>
@@ -488,7 +490,7 @@
 									   </ul>
 									</div>
 
-									<div class="grid__item large--one-quarter medium--one-half text-center">
+									<div class="grid__item large--one-fifth medium--one-half text-center">
 										<h4 class="text-center">Need to Know?</h4>
 										<ul class="no-bullets footer-list-typo need-to-know">
 
@@ -500,7 +502,7 @@
 										</ul>
 									</div>
 
-									<div class="grid__item large--one-quarter medium--one-half text-center">
+									<div class="grid__item large--one-fifth medium--one-half text-center">
 
 									  {% comment %}
 									    Loop through available payment methods and show their icons.
@@ -519,6 +521,22 @@
 									    </ul>
 									  {% endunless %}
 
+									</div>
+
+									<div class="grid__item large--one-fifth medium--one-half text-center">
+										<h4 class="text-center">IN PARTNERSHIP WITH TWIL TRAVEL</h4>
+										<ul class="no-bullets footer-partnership">
+
+											<li>
+												<img src="//cdn.shopify.com/s/files/1/1230/7128/files/TWIL-logo.png?v=1540261116" alt="twil travel" />
+											</li>
+											<li>TICO License No.50023133</li>
+											<li>Virtuoso Member</li>
+											<li>
+												<img src="//cdn.shopify.com/s/files/1/1230/7128/files/Virtuoso-logo.png?v=1540261160" alt="virtuoso logo" />
+											</li>
+
+										</ul>
 									</div>
 
 						</div>
@@ -595,12 +613,52 @@
 jQuery(document).on('ready', function() {
 
 	
+	
 	$(".special-button").hover(function() {
 		$(this).removeClass('additional-line');
 	}, function() {
 		$(this).addClass('additional-line');
 	});
 
+	{% comment %} $(".special-button").click(function() {
+			var element = $(this);
+			var default_url = "/pages/lets-talk";
+			var url = element.data('link') ? element.data('link') : default_url;
+			window.location = url;
+	}); {% endcomment %}
+
+
+	
+	var cal_padding = function() {
+		var padding_right;
+		var trip_content_element = $('.itinerary-content');
+		if (trip_content_element && trip_content_element.length > 0) {
+			var screen_size = $(window).width();
+			if (screen_size > 1180) {
+				padding_right = ((screen_size - 1180) / 2) + 30;
+			}  else {
+				padding_right = 30;
+			}
+			trip_content_element.css('padding-right', padding_right)
+		}
+	};
+
+	var cal_trip_image_height = function() {
+		var screen_size = $(window).width();
+		if (screen_size <= 768) {
+			$('.trip-itinerary-container').css('height', 'auto');
+		} else {
+			var height = $('.itinerary-img img').innerHeight();
+			$('.trip-itinerary-container').css('height', height);
+		}
+	}
+	cal_trip_image_height();
+	cal_padding();
+
+	$( window ).resize(function() {
+		cal_trip_image_height();
+		cal_padding();
+	});
 
 
 	$(".post-img-gallery").slick({
@@ -699,12 +757,15 @@ jQuery(document).on('ready', function() {
 
 			// Set styles once calculated
 			var stringOpacity = opacity.toString()
+			/*
 			var backgroundColor = 'rgba(255, 255, 255,' + stringOpacity + ')'
 			var style = {
 				'background-color': backgroundColor
 			}
+		
 			topBar.css(style)
 			navBar.css(style)
+			*/
 		})
 	</script>
 

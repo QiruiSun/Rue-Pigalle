@@ -9,7 +9,8 @@
 		<h1>Share Delicious Moments With Connoisseurs</h1>
 	</section>
 	<section class="wrapper">
-		{% assign headline_text = ‘’ %}
+		{% assign headline_text = 
+			"Jewelry is inherently joyful and intimate. So it should come as no surprise that our get-togethers throughout the year are designed to evoke the very same feelings. Over lunch or over aperitifs, we sit down with inspiring people who share their stories on jewelry as an art, a societal movement, and a philosophical proposition. You really must come." %}
 		{% include 'blog-headline', headline_text: headline_text %}
 		<div class="blogs-container">
 			{% for article in blog.articles %}
@@ -19,7 +20,7 @@
 					{% assign title = split_title[0] %}
 					{% assign location = split_title[1] %}
 					{% assign date = split_title[2] %}
-					<h3 class="title"><a class="" href="{{ article.url }}">{{ title }}</a></h3>
+					{% comment %} <h3 class="title"><a class="" href="{{ article.url }}">{{ title }}</a></h3> {% endcomment %}
 					<p class="description">{{ description }}</p>
 					<div class="article lookbook-article blog-article-block">
 						<a class="" href="{{ article.url }}">

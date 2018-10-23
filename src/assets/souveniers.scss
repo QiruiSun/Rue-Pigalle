@@ -3,50 +3,116 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    height: 480px;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 
 .image-gallery, .souvenier-descriptions {
-    width: 40%;
+    width: 50%;
     position: relative;
+}
 
-    div {
-        height: 480px;
+
+
+.souveniers-container {
+    width: 80%;
+    margin: auto;   
+}
+
+.main-content {
+    .souveniers-container {
+        .slick-dots {
+            bottom: auto;
+        }
     }
+}
+
+.reverse-souvenir-sector {
+
+    .souvenier-descriptions {
+        .desc-container {
+            text-align: left;
+            padding-left: 120px;
+            width: 90%;
+    
+            p {
+                width: 100%;
+
+                &.tagline {
+                    left: -80px;
+                    right: auto;
+    
+                    &:before {
+                        bottom: -12px;
+                        top: auto;
+                    }
+                }
+            }
+            
+        }
+    }
+    
 }
 
 .souveniers-banner {
     background-image: url({{ 'souveniers-banner' | asset_url }});  
 }
 
-.souvenier-descriptions {
 
+#shopify-section-souveniers-block {
+    .souvenier-descriptions  {
+        .shareaholic-canvas {
+            padding-left: 65px;
+            margin: auto;
+        }
+    }
+
+    .reverse-souvenir-sector {
+        .souvenier-descriptions  {
+            .shareaholic-canvas {
+                padding-left: 115px;
+                margin: auto;
+            }
+        }
+    }
+}
+
+.souvenier-descriptions {
     .desc-container {
+        padding-left: 80px;
+        margin-bottom: 40px;
+
         p {
-            width: 65%;
+            width: 80%;
+            font-size: 17px;
+            letter-spacing: 0.5px;
+            line-height: 24px;
 
             &:first-child {
-                margin-top: 120px;
+                margin-top: 170px;
             }
             strong {
-                font-size: 20px;
+                font-size: 26px;
+                margin-bottom: 30px;
+                display: inline-block;
             }
 
             &.tagline {
                 position: absolute;
                 width: auto;
-                top: 17%;
-                right: -12%;
+                top: 90px;
+                font-weight: 900;
+                letter-spacing: 1.5px;
+                font-size: 13px;
+                right: -80px;
                 transform: rotate(-90deg);
 
                 &:before {
                     content: '';
                     border: 3px solid black;
                     position: absolute;
-                    width: 35%;
-                    left: 108px;
-                    top: -6px;
+                    width: 45px;
+                    left: 130px;
+                    top: -12px;
                 }
             }
 

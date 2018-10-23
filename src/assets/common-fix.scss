@@ -5,3 +5,46 @@
         display: none;
     }
 }
+
+.shopify-challenge__container {
+    padding-top: 60px;
+}
+
+
+button.discover-more {
+    padding: 6px 29px;
+    border: 1px solid black;
+    text-transform: uppercase;
+    color: black;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    margin-left: 95px;
+    font-weight: 700;
+    margin-top: 30px;
+
+
+a {
+        color: black;
+    }
+}
+
+.stl-text-box {
+    .deco-headline {
+        margin-bottom: 20px;
+    }
+
+    p {
+        letter-spacing: 0.5px;
+        line-height: 22px;
+        text-align: left;
+    }
+}
+
+.footer-partnership {
+    li:first-child {
+        img {
+            width: 70%;
+        }
+    }
+}
+
