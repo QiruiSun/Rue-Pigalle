@@ -9,14 +9,14 @@
 		<h1>Share Delicious Moments With Connoisseurs</h1>
 	</section>
 	<section class="wrapper">
-		{% assign headline_text = 
-			"Jewelry is inherently joyful and intimate. So it should come as no surprise that our get-togethers throughout the year are designed to evoke the very same feelings. Over lunch or over aperitifs, we sit down with inspiring people who share their stories on jewelry as an art, a societal movement, and a philosophical proposition. You really must come." %}
-		{% include 'blog-headline', headline_text: headline_text %}
+		{% comment %} {% assign headline_text = 
+			"Jewelry is inherently joyful and intimate. So it should come as no surprise that our get-togethers throughout the year are designed to evoke the very same feelings. Over canapés and apéritifs, we mingle with inspiring people who share their stories on jewelry as an art, a societal movement, and a philosophical proposition. You really must come." %} {% endcomment %}
+		{% include 'blog-headline', headline_text: settings.events-headline %}
 		<div class="blogs-container">
 			{% for article in blog.articles %}
 				{% if article.image %}
 				<div class="full-article blog__item">
-					{% assign split_title = article.title | split: " - " %}
+					{% assign split_title = article.title | split: "_" %}
 					{% assign title = split_title[0] %}
 					{% assign location = split_title[1] %}
 					{% assign date = split_title[2] %}

@@ -10,27 +10,30 @@
 	</div (or main)>
 	
 {% endcomment %}
-<div class="main-content small--show large--hide medium--hide">
-	<div class="wrapper"> 
-		<div class="grid">
-			<div class="grid__item">
-				<a class="btn--secondary" href="/collections/new-arrivals">New Arrivals</a>
-			</div>
-			<div class="grid__item">
-				<a class="btn--secondary" href="/collections/jewelery">Jewelery</a>
-			</div>
-			<div class="grid__item">
-				<a class="btn--secondary" href="/collections/accessories">Accessories</a>
-			</div>
-			<div class="grid__item">
-				<a class="btn--secondary" href="/collections/clothing">Clothing</a>
-			</div>
-			<div class="grid__item">
-				<a class="btn--secondary" href="/collections/sales">Sales</a>
+
+{% unless settings.show-signin-link == 'false' %}
+	<div class="main-content small--show large--hide medium--hide">
+		<div class="wrapper"> 
+			<div class="grid">
+				<div class="grid__item">
+					<a class="btn--secondary" href="/collections/new-arrivals">New Arrivals</a>
+				</div>
+				<div class="grid__item">
+					<a class="btn--secondary" href="/collections/jewelery">Jewelery</a>
+				</div>
+				<div class="grid__item">
+					<a class="btn--secondary" href="/collections/accessories">Accessories</a>
+				</div>
+				<div class="grid__item">
+					<a class="btn--secondary" href="/collections/clothing">Clothing</a>
+				</div>
+				<div class="grid__item">
+					<a class="btn--secondary" href="/collections/sales">Sales</a>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+{% endunless %}
 
 </div>
 <div class="main-content" role="main">
@@ -177,12 +180,17 @@
 		<div class="grid-uniform text-center">
 			  
 			<div class="grid__item large--two-thirds">
-
-				{% assign src = settings.video-code | split: 'src="' %}
-				{% assign src = src[1] | split: '"' | first %}
+				{% if settings.video-replacement %}
+					{{ 'video-replacement' | asset_url | img_tag }}
+				{% else %}
+					{% assign src = settings.video-code | split: 'src="' %}
+					{% assign src = src[1] | split: '"' | first %}
+					
+					<iframe width="740" height="417" src="{{ src }}" frameborder="0" allowfullscreen>
+					</iframe>
+				{% endif %}
 				
-				<iframe width="740" height="417" src="{{ src }}" frameborder="0" allowfullscreen>
-				</iframe>
+				
 				
 			</div>
 			

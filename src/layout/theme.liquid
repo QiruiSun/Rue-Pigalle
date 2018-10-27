@@ -165,56 +165,55 @@
 		</div>
 
 		<!-- User Panel -->
-		<div id="user-panel" class="grid__item large--two-thirds medium--hide small--hide">
-			<ul class="inline-list text-right cart-sticky-nav">
+			<div id="user-panel" class="grid__item large--two-thirds medium--hide small--hide">
+				<ul class="inline-list text-right cart-sticky-nav">
 
-				<!-- Search -->
-				<li>
-					<form id="circle-search-icon" action="/search" method="get" role="search">
-						{% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
-						<input class="search-bar" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
-					</form>
-				</li>
+					<!-- Search -->
+					<li>
+						<form id="circle-search-icon" action="/search" method="get" role="search">
+							{% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
+							<input class="search-bar" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
+						</form>
+					</li>
 
-				<!-- Wishlist -->
-				<li>
-					{% if customer %} <!-- Logged In -->
-						<a href="/apps/mywishlist">Wishlist</a>
-					{% else %}
-						<a href="/pages/wishlist-login">Wishlist</a>
-					{% endif %}
-				</li>
+					{% unless settings.show-signin-link == 'false' %}
+						<!-- Wishlist -->
+						<li>
+							{% if customer %} <!-- Logged In -->
+								<a href="/apps/mywishlist">Wishlist</a>
+							{% else %}
+								<a href="/pages/wishlist-login">Wishlist</a>
+							{% endif %}
+						</li>
 
-				<!-- Account Name -->
-				{% if customer %} <!-- Logged In -->
-				<li>
-						<a href="/account">Account</a>
-				</li>
-
-				{% else %}
-
-				{% endif %}
-
-				<!-- Login or Logout -->
-				<li>
+						<!-- Account Name -->
 						{% if customer %} <!-- Logged In -->
-							{{ 'layout.customer.log_out' | t | customer_logout_link }}
-						{% else %}  <!-- NOT Logged In -->
-							{{ 'layout.customer.log_in' | t | customer_login_link }}
+						<li>
+								<a href="/account">Account</a>
+						</li>
 						{% endif %}
-				</li>
 
-				<!-- Bag -->
-				<li>
-					<a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
-						{{ 'layout.cart.title' | t }}
-						(<span id="CartCount">{{ cart.item_count }}</span>)
-					</a>
-				</li>
-			</ul>
+						<!-- Login or Logout -->
+						<li>
+								{% if customer %} <!-- Logged In -->
+									{{ 'layout.customer.log_out' | t | customer_logout_link }}
+								{% else %}  <!-- NOT Logged In -->
+									{{ 'layout.customer.log_in' | t | customer_login_link }}
+								{% endif %}
+						</li>
 
-		</div>
+						<!-- Bag -->
+						<li>
+							<a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+								{{ 'layout.cart.title' | t }}
+								(<span id="CartCount">{{ cart.item_count }}</span>)
+							</a>
+						</li>
+					{% endunless %}
+				</ul>
 
+			</div>
+		
 	</div>
 
 </div>
@@ -412,8 +411,8 @@
 	{% endif %}
 
     {{ content_for_layout }}
-
-	{% if template == "index" or page.handle contains "rewards" or page.handle contains "lets-talk" or page.handle contains "join-our-list" or page.handle contains "about-us" or page.handle contains "contact-us" or page.handle contains "rewards-club" or page.handle contains "press" or page.handle contains "get-styled"  %}
+	
+	{% if template == "index" or page.handle contains "rewards" or page.handle contains "souvenirs" or template contains "events" or template contains "adventures" or template contains "trip" or template contains "event" or page.handle contains "lets-talk" or page.handle contains "join-our-list" or page.handle contains "about-us" or page.handle contains "contact-us" or page.handle contains "rewards-club" or page.handle contains "press" or page.handle contains "get-styled"  %}
 		<div></div>
 
 	{% else %}
@@ -631,12 +630,14 @@ jQuery(document).on('ready', function() {
 	
 	var cal_padding = function() {
 		var padding_right;
-		var trip_content_element = $('.itinerary-content');
+		var trip_content_element = $('.trip-itinerary-container');
 		if (trip_content_element && trip_content_element.length > 0) {
 			var screen_size = $(window).width();
 			if (screen_size > 1180) {
 				padding_right = ((screen_size - 1180) / 2) + 30;
-			}  else {
+			} else if (screen_size <= 768 ) {
+				padding_right = 0;
+			} else {
 				padding_right = 30;
 			}
 			trip_content_element.css('padding-right', padding_right)
@@ -652,12 +653,33 @@ jQuery(document).on('ready', function() {
 			$('.trip-itinerary-container').css('height', height);
 		}
 	}
+
+	var cal_img_desc_margin = function() {
+		var screen_size = $(window).width();
+		if (screen_size <= 768) {
+			var img_desc = $('.post-img-gallery .img-desc');
+			if (img_desc && img_desc.length > 0) {
+				img_desc.each(function(index) {
+					var this_desc = $(this);
+					var mobile_margin = this_desc.siblings('.mobile').css('margin-left');
+					if (mobile_margin) {
+						this_desc.css('left', `calc(7% + ${mobile_margin})`);
+					}
+				});
+			}
+		} else {
+			$('.post-img-gallery .img-desc').css('left', '7%');
+		}
+	}
+
 	cal_trip_image_height();
 	cal_padding();
+	cal_img_desc_margin();
 
 	$( window ).resize(function() {
 		cal_trip_image_height();
 		cal_padding();
+		cal_img_desc_margin();
 	});
 
 
@@ -771,9 +793,12 @@ jQuery(document).on('ready', function() {
 
 {% include 'swymSnippet' %}
 
+{% unless settings.show-signin-link == 'false' %}
+
   {% include 'sweettooth-initializer' %}
 
   {% include 'sweettooth-tab-widget' %}
+{% endunless %}
 
 </body>
 </html>

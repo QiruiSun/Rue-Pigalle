@@ -4,6 +4,8 @@
     
     .floating-square-wrapper {
         background-color: transparent;
+        // padding-top: 100px;
+        padding-bottom: 50px;
     }
 
     .floating-square {
@@ -63,6 +65,10 @@
 
     .fieldgroup {        
         width: 45%;
+    }
+
+    .button-container {
+        margin-top: 55px;
     }
 }
 

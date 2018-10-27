@@ -1,22 +1,23 @@
 <!-- /templates/blog.lookbook.liquid -->
 
 <div class="main-content">
-	<section class="events-banner blog-page-banner">
+	<section class="adventures-banner blog-page-banner">
 		<h3>
-			Events
+			ADENTURES
 		</h3>
 		<div class='pink-bar'></div>
-		<h1>Share Delicious Moments With Connoisseurs</h1>
+		<h1>Take A Journey</h1>
+		<h1>That’s An Art Form In Itself</h1>
 	</section>
 	<section class="wrapper">
-		{% assign headline_text = 
-			"Jewelry is inherently joyful and intimate. So it should come as no surprise that our get-togethers throughout the year are designed to evoke the very same feelings. Over lunch or over aperitifs, we sit down with inspiring people who share their stories on jewelry as an art, a societal movement, and a philosophical proposition. You really must come." %}
-		{% include 'blog-headline', headline_text: headline_text %}
+		{% comment %} {% assign headline_text = 
+			"Three little words: made by hand. Rue Pigalle takes intimate groups behind the scenes and beyond the clichés to discover the secrets of glorious craftsmanship. The places we go aren’t generally accessible-- a jewel box of an atelier, a vineyard hidden in the middle of a city, dinner with a designer. But we have the relationships to unlock these rare and special experiences. Do you know the phrase ‘frisson of delight’?" %} {% endcomment %}
+		{% include 'blog-headline', headline_text: settings.adventures-headline %}
 		<div class="blogs-container">
 			{% for article in blog.articles %}
 				{% if article.image %}
 				<div class="full-article blog__item">
-					{% assign split_title = article.title | split: " - " %}
+					{% assign split_title = article.title | split: "_" %}
 					{% assign title = split_title[0] %}
 					{% assign location = split_title[1] %}
 					{% assign date = split_title[2] %}

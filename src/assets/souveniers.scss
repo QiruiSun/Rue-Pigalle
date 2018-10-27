@@ -4,6 +4,10 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin-bottom: 70px;
+
+    &:last-of-type {
+        margin-bottom: 40px;
+    }
 }
 
 .image-gallery, .souvenier-descriptions {
@@ -26,7 +30,12 @@
     }
 }
 
+.sector-container.reverse-souvenir-sector {
+    flex-wrap: wrap-reverse;
+}
+
 .reverse-souvenir-sector {
+    
 
     .souvenier-descriptions {
         .desc-container {
@@ -55,6 +64,7 @@
 
 .souveniers-banner {
     background-image: url({{ 'souveniers-banner' | asset_url }});  
+    background-position-x: right;
 }
 
 

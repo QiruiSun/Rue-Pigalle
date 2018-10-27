@@ -245,7 +245,7 @@
         "info": "Smaller text than the main, usually comes before the main heading. Automatically upper-case."
       },
       {
-        "type": "text",
+        "type": "richtext",
         "id": "feature_copy",
         "label": "Smaller Copy Text",
         "info": "This text is above the button, and only avaliable on larger resolution screens. It is case-sensitive."
@@ -284,6 +284,13 @@
         "id": "video-code",
         "label": "YouTube iFrame Code",
         "info": "You need to grab the EMBED link from the share section of youtube. it will look like: <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/kTOUlnCyXxA\" frameborder=\"0\" allowfullscreen></iframe>"
+      },
+      {
+        "type": "image",
+        "id": "video-replacement",
+        "label": "Intro Image",
+        "max-width": 4000,
+        "max-height": 4000
       },
       {
         "type": "text",
@@ -405,21 +412,20 @@
     ]
   },
   {
-    "name": "Come with me",
+    "name": "Adventures",
     "settings": [
       {
         "type": "image",
-        "id": "banner-background",
-        "label": "Come with me Background Image",
+        "id": "adventures-banner",
+        "label": "Adventures Banner Image",
         "max-width": 4000,
         "max-height": 4000,
         "info": "4000 x 4000px .jpg (maximum)"
       },
       {
-        "type": "video_url",
-        "id": "come-with-me-video",
-        "label": "Come With Me Video URL",
-        "accept": ["youtube", "vimeo"]
+        "type": "richtext",
+        "id": "adventures-headline",
+        "label": "Adventures Headline"
      }
     ]
   },
@@ -436,21 +442,20 @@
         "info": "4000 x 4000px .jpg (maximum)"
       },
       {
-        "type": "video_url",
-        "id": "events-video",
-        "label": "Events Video URL",
-        "accept": ["youtube", "vimeo"]
+        "type": "richtext",
+        "id": "events-headline",
+        "label": "Events Headline"
      }
     ]
   },
 
   {
-    "name": "Souveniers Page",
+    "name": "Souvenirs Page",
     "settings": [
       {
         "type": "image",
         "id": "souveniers-banner",
-        "label": "Souveniers Page Background Image",
+        "label": "Souvenirs Page Background Image",
         "max-width": 4000,
         "max-height": 4000,
         "info": "4000 x 4000px .jpg (maximum)"
@@ -458,7 +463,7 @@
       {
         "type": "video_url",
         "id": "souveniers-video",
-        "label": "Souveniers Video URL",
+        "label": "Souvenirs Video URL",
         "accept": ["youtube", "vimeo"]
      }
     ]
@@ -575,6 +580,17 @@
         "id": "shopTheLookBannerDistance",
         "default": 50,
         "label": "Distance in pixels (px) from the banner."
+      }
+    ]
+  },
+  {
+    "name": "Show Sign-In/Sign-up Link",
+    "settings": [
+      {
+        "type": "text",
+        "id": "show-signin-link",
+        "label": "Sign-In/Sign-up Link switch",
+        "info": "Set to 'false' to hide the links"
       }
     ]
   }

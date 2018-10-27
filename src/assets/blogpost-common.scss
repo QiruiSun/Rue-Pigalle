@@ -62,7 +62,7 @@ $pink: #F065A4;
 
 .desc-details {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     margin-bottom: 100px;
 }
 
@@ -88,15 +88,15 @@ $pink: #F065A4;
         margin-bottom: 50px;
     }
 
-    i.shareaholic-service-icon {
-        background: $pink !important;
-    }
+    // i.shareaholic-service-icon {
+    //     background: $pink !important;
+    // }
 }
 
 .key-factors, .souvenier-descriptions {
 
     .shareaholic-canvas {
-        margin-top: -70px;
+        margin-top: -60px;
         height: 60px;
         margin-left: -15px;
     }
@@ -111,8 +111,16 @@ $pink: #F065A4;
         padding: 16px;
         border: none !important;
         background-color: white !important;
+
+        // hover state for social media handles
+        &:hover {
+            color: #ee68a4 !important;
+        }
     }
 }
+
+
+// hover state for social media handles
 
 .itinerary-footer {
     .shareaholic-canvas {
@@ -129,6 +137,11 @@ $pink: #F065A4;
         padding: 16px;
         border: none !important;
         background-color: white !important;
+
+        // hover state for social media handles
+        &:hover {
+            color: #ee68a4 !important;
+        }
     }
 }
 
@@ -139,6 +152,7 @@ $pink: #F065A4;
         color: black;
         font-size: 28px;
         letter-spacing: $small-ls;
+        margin-bottom: 40px;
         font-weight: 400 !important;
     }
 
@@ -156,12 +170,12 @@ $pink: #F065A4;
 }
 
 .button-container {
-    padding-top: 10px;
-    margin-top: -10px;
+    // padding-top: 10px;
+    margin-top: 0px;
 
     .special-button {
         position: relative;
-        padding: 11px 33px;
+        padding: 11px 40px;
         background-color: $pink;
         font-size: 12px;
         color: white;
@@ -190,9 +204,18 @@ $pink: #F065A4;
 }
 
 .post-img-gallery .each-img {
+    
+    &.slick-slide {
+        min-height: unset !important;
+    }
 
     .img-container {
         position: relative;
+
+        img.mobile {
+            display: none;
+            margin: auto;
+        }
 
         .img-desc {
             position: absolute;
@@ -225,7 +248,8 @@ $pink: #F065A4;
 }
 
 .itinerary-content {
-    width: 45%;
+    width: 49%;
+    padding-right: 40px;
     overflow-y: scroll;
 
     h2 {
@@ -255,6 +279,7 @@ $pink: #F065A4;
 
 .itinerary-footer {
     text-align: center;
+    margin-bottom: 10px;
 
     .button-container {
         margin-bottom: 25px;
@@ -272,6 +297,14 @@ $pink: #F065A4;
         width: 100%;
     }
 
+    .desc-details {
+        margin-bottom: 50px;
+
+        .post-intro {
+            margin-bottom: 50px;
+        }
+    }
+
     .key-factors {
         padding-left: 0px;
         text-align: center;
@@ -279,6 +312,21 @@ $pink: #F065A4;
 
     .post-img-gallery .each-img {
         height: auto;
+
+        .img-container {
+            img {
+                display: none;
+
+                &.mobile {
+                    display: block;
+                }
+            }
+        }
+    }
+
+       
+    .blog-headline {
+        width: 80%;
     }
 
     .blog-page-banner {
@@ -288,16 +336,24 @@ $pink: #F065A4;
         }
     }
 
+    .adventures-banner.blog-page-banner {
+        h1 {
+            width: 90%;
+        }
+    }
+
     .itinerary-img {
         margin-bottom: 50px;
     }
 
     .trip-itinerary-container {
         height: auto;
+        margin-bottom: 20px;
     }
 
     .itinerary-content {
         overflow: auto;
+        padding-left: 15px;
     }
 
     .blogs-container {
@@ -305,6 +361,12 @@ $pink: #F065A4;
             width: 100%;
             display: flex;
             justify-content: center;
+        }
+    }
+
+    #trip-banner {
+        h1 {
+            width: 80%;
         }
     }
 
@@ -318,6 +380,10 @@ $pink: #F065A4;
 
     .souveniers-container .sector-container {
         height: auto;
+
+        &:first-child {
+            margin-bottom: 0px;
+        }
     }
     
     .souvenier-descriptions {
@@ -327,7 +393,7 @@ $pink: #F065A4;
             p {
                 &.tagline {
                     top: 29%;
-                    right: -9%;
+                    // right: -9%;
                 }
     
             }
@@ -339,6 +405,7 @@ $pink: #F065A4;
 
         div.desc-container {
             height: auto;
+            padding-left: 0px;
         }
     }
 
@@ -348,6 +415,55 @@ $pink: #F065A4;
 
     .nav-bar {
         padding-left: 60px;
+    }
+
+    #shopify-section-souveniers-block {
+        .souvenier-descriptions  {
+            .shareaholic-canvas {
+                padding-left: 0px;
+            }
+        }
+    
+        .reverse-souvenir-sector {
+            margin-bottom: 10px;
+
+            .souvenier-descriptions  {
+                .desc-container {
+                    padding-left: 40px;
+                }
+
+                .shareaholic-canvas {
+                    padding-left: 40px;
+                }
+            }
+        }
+    }
+
+    .blog__item {
+        .hover-view {
+            opacity: 1;
+            position: static;
+            height: unset;
+
+            &:hover {
+                background-color: white;
+            }
+
+            .pink-bar {
+                margin: 20px 0px 20px 0px;
+            }
+
+            .hover-content {
+                color: unset;
+
+                h2 {
+                    padding-left: 10%;
+                }
+                h3 {
+                    padding-left: 10%
+                }
+            }
+        }
     }
 
 }
